@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Information</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="form" class="form" method="POST">
+        <div style="height: 150px;"></div>
+        <div class="field">
+           
+            <select class="menu" id="buildingName" name="Building Name">
+                <option value="">Select a building name</option>
+                <!-- JavaScript will add options here -->
+            </select>
+        </div>
+        
+        <div class="textContent">
+          <label class="titles" for="title">Ring:</label>
+          <p class="textContent" id="title" name="Title"></p>
+      </div>
+        
+    </form>
+
+    <script>
+        const url = "https://script.google.com/macros/s/AKfycbzX8-vJYzfdwGECBsBSsHQgT1zNVNx8coPo9D9SRND1vb2A7H-Q9wph6_Wk3fTrC4vXPA/exec";
+
+        document.getElementById('form').action = url;
+
+        // Fetching the data from the sheet and populating the dropdown for Building Name
+        fetch(`${url}?type=header&header=buildingName`)
+            .then((response) => response.json())
+            .then(({ data }) => {
+                console.log(data);
+                populateDropdown('buildingName', data);
+            })
+            .catch((error) => console.error('Error:', error));
+
+        // Function to add options to the dropdown
+        const populateDropdown = (id, arr) => {
+            let result = '<option value="">Select a building name</option>';
+            for (const item of arr) {
+                result += `<option value="${item}">${item}</option>`;
+            }
+            document.getElementById(id).innerHTML = result;
+        }
+
+        // Event listener for building name dropdown change
+        document.getElementById('buildingName').addEventListener('change', (event) => {
+            const selectedname = event.target.value;
+            if (selectedname) {
+                fetch(`${url}?type=rowkey&rowkey=${selectedname}`)
+                    .then((response) => response.json())
+                    .then(({ data }) => {
+                        console.log(data);
+                        document.getElementById('title').innerText = data['Title'] || '';
+                        document.getElementById('district').value = data['District'] || '';
+                        document.getElementById('appearanceDescription').value = data['Appearance Description'] || '';
+                        document.getElementById('atmosphereDescription').value = data['Atmosphere Description'] || '';
+                        document.getElementById('inventoryTable').value = data['Inventory Table'] || '';
+                        document.getElementById('cutscene').value = data['Cutscene'] || '';
+                        document.getElementById('keyNpcName').value = data['Key NPC Name'] || '';
+                        document.getElementById('statBlock').value = data['Stat Block'] || '';
+                        document.getElementById('personalRequest').value = data['Personal Request'] || '';
+                        document.getElementById('description').value = data['Description'] || '';
+                        document.getElementById('backstory').value = data['Backstory'] || '';
+                        document.getElementById('buildingImage').value = data['Building Image'] || '';
+                        document.getElementById('npcImage').value = data['NPC Image'] || '';
+                        document.getElementById('cutsceneTxt').value = data['Cutscene txt'] || '';
+                        document.getElementById('cutsceneImage').value = data['Cutscene image'] || '';
+                    })
+                    .catch((error) => console.error('Error:', error));
+            } else {
+                document.getElementById('title').innerText = '';
+                document.getElementById('district').value = '';
+                document.getElementById('appearanceDescription').value = '';
+                document.getElementById('atmosphereDescription').value = '';
+                document.getElementById('inventoryTable').value = '';
+                document.getElementById('cutscene').value = '';
+                document.getElementById('keyNpcName').value = '';
+                document.getElementById('statBlock').value = '';
+                document.getElementById('personalRequest').value = '';
+                document.getElementById('description').value = '';
+                document.getElementById('backstory').value = '';
+                document.getElementById('buildingImage').value = '';
+                document.getElementById('npcImage').value = '';
+                document.getElementById('cutsceneTxt').value = '';
+                document.getElementById('cutsceneImage').value = '';
+            }
+        });
+    </script>
+</body>
+</html>

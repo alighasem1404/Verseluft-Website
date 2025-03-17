@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesProducts.css">
+
+
+</head>
+<body>
+    <header style="display: flex; justify-content: space-between; width: 80vw; margin: auto; " >
+        <div style="display: flex; align-items: flex-start; gap: 0px; flex-direction: column;">
+        <h1 class="heroTitle" style="font-size: 4em; padding-top: 10px;"> Verseluft</h1>
+        <h1 class="heroTitle" style="text-align: right; padding-left: 190px;">Publishing</h1>
+        </div>
+        <p class="heroDescription" style="padding-top: 20px;" >Where the fantasy becomes the reality</p>
+        <img class="heroLogo" style="width: 100px; height: 100px; padding-top: 10px;" src="logo.png" alt="Logo" >
+
+        
+
+    </header>
+
+<form id="form" class="form" method="POST">
+    <div id="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading data, please wait...</p>
+    </div>
+    
+    <div style="border-bottom: thick double #fff; position: relative; top: 20%; height: 10%; z-index: 50;">
+       
+    </div>
+    <div class="banner">
+        <img src="" alt="Banner Image" id="banner" name="Banner">
+    </div>
+
+    <div class="products">
+        <img id="title" name="Title" src="" alt="Title Image" style="width: 50%; margin: auto;">
+        <p style="margin-bottom: 45px; margin-top: 45px;" id="description" name="Description"></p>
+        <button class="button" style="margin-top: 20px; margin: auto;">Add Now</button>
+    </div>
+
+
+    <!-- sample pages-->
+
+    <div class="w">
+        <div class="ts">
+            <input type="radio" id="c1" name="ts" checked>
+            <label class="t" for="c1"><img src="" alt="" id="sample1" name="Sample 1"></label>
+            <input type="radio" id="c2" name="ts">
+            <label class="t" for="c2"><img src="" alt="" id="sample2" name="Sample 2"></label>
+            <input type="radio" id="c3" name="ts">
+            <label class="t" for="c3"><img src="" alt="" id="sample3" name="Sample 3"></label>
+            <input type="radio" id="c4" name="ts">
+            <label class="t" for="c4"><img src="" alt="" id="sample4" name="Sample 4"></label>
+            <input type="radio" id="c5" name="ts">
+            <label class="t" for="c5"><img src="" alt="" id="sample5" name="Sample 5"></label>
+            <input type="radio" id="c6" name="ts">
+            <label class="t" for="c6"><img src="" alt="" id="sample6" name="Sample 6"></label>
+            <input type="radio" id="c7" name="ts">
+            <label class="t" for="c7"><img src="" alt="" id="sample7" name="Sample 7"></label>
+            <input type="radio" id="c8" name="ts">
+            <label class="t" for="c8"><img src="" alt="" id="sample8" name="Sample 8"></label>
+            <input type="radio" id="c9" name="ts">
+            <label class="t" for="c9"><img src="" alt="" id="sample9" name="Sample 9"></label>
+            <input type="radio" id="c10" name="ts">
+            <label class="t" for="c10"><img src="" alt="" id="sample10" name="Sample 10"></label>
+
+        </div>
+    </div>
+</form> 
+    <div class="products">
+        
+        <button class="button" style="margin-top: 20px; margin: auto;">Add Now</button>
+
+
+    </div>
+    <div style="border-bottom: thick double #fff; position: relative; margin-top: 40px; height: 10%; z-index: 50;">
+       
+    </div>
+
+<!-- Previous Projects-->
+<section style="padding: 20px; text-align: center; margin-bottom: 35px;">
+    <h2 style="color: #0f84e4; font-size: 2.5em;">Other Products</h2>
+    <div class="previousGallery">
+        <div class="previousBook">
+            <a href="https://google.com">
+            <img src="https://cdn.midjourney.com/955c2ccd-5016-491d-852c-ded20dd11591/0_1.png" alt="Image 1" >
+            <div class="previousBookText">Price</div>
+            <div class="previousBookText">Pages</div>
+            </a>
+        </div>
+        <div class="previousBook">
+            <a href="https://google.com">
+            <img src="https://cdn.midjourney.com/973499e2-da58-4663-b338-8bae932380f6/0_2.png" alt="Image 2" >
+            <div class="previousBookText">Price</div>
+            <div class="previousBookText">Pages</div>
+            </a>
+        </div>
+        <div class="previousBook">
+            <a href="https://google.com">
+            <img src="https://cdn.midjourney.com/fdf4fdc6-5c98-4402-8b30-ff432623ce2a/0_0.png" alt="Image 3" >
+            <div class="previousBookText">Price</div>
+            <div class="previousBookText">Pages</div>
+            </a>
+        </div>
+        <div class="previousBook">
+            <a href="https://google.com">
+            <img src="https://cdn.midjourney.com/89df76b7-ca8c-41e7-9374-63f59c9fa706/0_0.png" alt="Image 4" >
+            <div class="previousBookText">Price</div>
+            <div class="previousBookText">Pages</div>
+            </a>
+        </div>
+        <div class="previousBook">
+            <a href="https://google.com">
+            <img src="https://cdn.midjourney.com/003de75b-1528-4251-86c1-c5ec39dfc6a0/0_2.png" alt="Image 5" >
+            <div class="previousBookText">Price</div>
+            <div class="previousBookText">Pages</div>
+            </a>
+        </div>
+        
+
+
+
+    
+    
+
+<script>
+    const url = "https://script.google.com/macros/s/AKfycbzX8-vJYzfdwGECBsBSsHQgT1zNVNx8coPo9D9SRND1vb2A7H-Q9wph6_Wk3fTrC4vXPA/exec";
+const selectedname = "egyptgods"; // Change this to your desired building name
+
+// Show loading overlay
+function showLoading() {
+    document.getElementById('loading-overlay').style.display = 'flex';
+}
+
+// Hide loading overlay
+function hideLoading() {
+    document.getElementById('loading-overlay').style.display = 'none';
+}
+
+function populateData(data) {
+    document.getElementById('title').src = data['Title'] || '';
+    document.getElementById('description').innerText = data['Description'] || '';
+    document.getElementById('banner').src = data['Banner'] || '';
+    document.getElementById('sample1').src = data['Sample1'] || '';
+    document.getElementById('sample2').src = data['Sample2'] || '';
+    document.getElementById('sample3').src = data['Sample3'] || '';
+    document.getElementById('sample4').src = data['Sample4'] || '';
+    document.getElementById('sample5').src = data['Sample5'] || '';
+    document.getElementById('sample6').src = data['Sample6'] || '';
+    document.getElementById('sample7').src = data['Sample7'] || '';
+    document.getElementById('sample8').src = data['Sample8'] || '';
+    document.getElementById('sample9').src = data['Sample9'] || '';
+    document.getElementById('sample11').src = data['Sample11'] || '';
+}
+// Start by showing the loading screen
+showLoading();
+
+if (selectedname) {
+    fetch(`${url}?type=rowkey&rowkey=${selectedname}`)
+        .then(response => response.json())
+        .then(({ data }) => {
+            console.log("Fetched Data:", data);
+            populateData(data);
+            hideLoading();
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+            hideLoading();
+        });
+} else {
+    hideLoading();
+}
+
+
+
+    </script>        
+
+</section>
+
+<script>
+    const els = document.querySelectorAll("[type='radio']");
+    for (const el of els)
+        el.addEventListener("input", e => reorder(e.target, els));
+    reorder(els[0], els);
+    
+    function reorder(targetEl, els) {
+        const nItems = els.length;
+        let processedUncheck = 0;
+        for (const el of els) {
+            const containerEl = el.nextElementSibling;
+            if (el === targetEl) {
+                containerEl.style.setProperty("--w", "100%");
+                containerEl.style.setProperty("--l", "0");
+            } else {
+                containerEl.style.setProperty("--w", `${100/(nItems-1)}%`);
+                containerEl.style.setProperty("--l", `${processedUncheck * 100/(nItems-1)}%`);
+                processedUncheck += 1;
+            }
+        }
+    }
+</script>
+
+    <footer style="background-color: #333; color: white; padding: 20px;  display: flex; justify-content: space-between; flex: 1 2 auto;">
+        <img class="heroLogo" style="padding-left: 60px;" src="logo.png" alt="Logo" >
+        
+        
+        
+        
+        <div style="padding-left: 200px;">
+            <div style="height: 40px;"></div>
+            <p>&copy; 2023 Verseluft. All rights reserved.</p>
+            <a href="https://facebook.com" style="color: white; margin: 0 10px;">Facebook</a>
+            <a href="https://twitter.com" style="color: white; margin: 0 10px;">Twitter</a>
+            <a href="https://instagram.com" style="color: white; margin: 0 10px;">Instagram</a>
+        
+        </div>
+        <form name="submit-to-google-sheet" class="newsletterForm"  >
+            <input type="email" name="Email" placeholder="Email for Newsletter" class="emailInput">
+            <button type="submit" class="emailButton">Subscribe</button>
+            <span id="msg"></span>
+        </form>
+        
+    </footer>
+
+</body>
+</html>

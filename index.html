@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesLanding.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
+    
+</head>
+<body>
+    
+    <header style="display: flex; justify-content: space-between; width: 80vw; margin: auto;" >
+        <div style="display: flex; align-items: flex-start; gap: 0px; flex-direction: column;">
+        <h1 class="heroTitle" style="font-size: 4em; padding-top: 10px;"> Verseluft</h1>
+        <h1 class="heroTitle" style="text-align: right; padding-left: 190px;">Publishing</h1>
+        </div>
+        <p class="heroDescription" style="padding-top: 20px;" >Where the fantasy becomes the reality</p>
+        <img class="heroLogo" style="width: 100px; height: 100px; padding-top: 10px;" src="logo.png" alt="Logo" >
+
+        
+
+    </header>
+
+    <!-- carousel--> 
+    <div class="carousel">
+        <!--list item-->
+        
+
+        <div class="list">
+            <div class="item">
+                <img src="Egypt banner funded.jpg" alt="">
+                <div class="content">
+                    <div class="author">Vampire Rabbit</div>
+                    <div class="title"> Egyptian</div>
+                    <div class="topic"> Gods and Setting for D&D</div>
+                    <div class="description">
+                        25 Egyptian Gods for DnD 5e. Fully Designed Egyptian Setting, 50 Cleric Domains & Paladin Oaths. Priests, Temples & their Followers.
+                    </div>
+                    <!--Counter 1-->
+                    <p class="timerCountdownLive" id="Project1"></p>
+
+                    <script>
+                        // Set the date we're counting down to
+                        var endDownDate1 = new Date("Mar 11, 2025 12:00:00").getTime();
+
+                        // Update the count down every 1 second
+                        var x = setInterval(function() {
+
+                        // Get today's date and time
+                        var now = new Date().getTime();
+                            
+                        // Find the distance between now and the count down date
+                        var distance = endDownDate1 - now;
+                            
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                            
+                        // Output the result in an element with id="Project1"
+                        document.getElementById("Project1").innerHTML = "End in " + days + "d " + hours + "h ";
+                            
+                        // If the count down is over, write some text 
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("Project1").innerHTML = "EXPIRED";
+                        }
+                        }, 1000);
+                    </script>
+                    <div class="buttons">
+                        <a href="https://google.com">
+                            <button>Live on KickStarter</button>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="town banner funded.jpg" >
+                <div class="content">
+                    <div class="author">MoonstoneSculptor</div>
+                    <div class="title"> Complete City 5</div>
+                    <div class="topic"> Underground City</div>
+                    <div class="description">
+                        A DnD 5e guide to an underground city forged by dwarves, with rich history, diverse districts, and a wealth of mysteries.
+                    </div>
+                    <!--Counter 2-->
+                    
+                    <p class="timerCountdownLive" id="Project2"></p>
+
+                    <script>
+                        // Set the date we're counting down to
+                        var endDownDate2 = new Date("Feb 28, 2025 12:00:00").getTime();
+
+                        // Update the count down every 1 second
+                        var x = setInterval(function() {
+
+                        // Get today's date and time
+                        var now = new Date().getTime();
+                            
+                        // Find the distance between now and the count down date
+                        var distance = endDownDate2 - now;
+                            
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                            
+                        // Output the result in an element with id="Project2"
+                        document.getElementById("Project2").innerHTML = "End in " + days + "d " + hours + "h ";
+                            
+                        // If the count down is over, write some text 
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("Project2").innerHTML = "EXPIRED";
+                        }
+                        }, 1000);
+                    </script>
+                    <div class="buttons">
+                        <a href="https://google.com">
+                            <button>Live on KickStarter</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- thumbnail-->
+        <div class="thumbnail">
+           
+            <div class="item">
+                <img src="town banner funded.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="item">
+                <img src="Egypt banner funded.jpg">
+                <div class="content">
+                    <div class="title">
+                        Name Slider
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <!--arrows-->
+        <div class="arrows">
+            <button id="prev"><</button>
+            <button id="next">></button>
+        </div>
+        <div class="time"></div>
+     </div>
+
+    <div class="hero">
+
+    </div>
+    
+    
+
+   
+
+
+    <section class="testimonialsSection" >
+        <h2 style="color: #ccc;">Backers' Quotes</h2>
+        <div class="testimonials">
+            <div class="testimonialsCard">
+                <p >Thank you for a creating a product for us to love 🙏</p>
+                <li>Jeff Steel</li>
+                
+            </div>
+            <div class="testimonialsCard">
+                
+                <p >AMAZING! Love it! This will be one of the main bases for the PC I am DM'ing. I really hope you come out with many more. Some can be villages, towns, and ports. Thank you.</p>
+                <li>MadFergy</li>
+                
+            </div>
+            <div class="testimonialsCard">
+                <p >I love how you've incorporated sound through links to ambient music tracks on Youtube. That's just that little extra that you don't often find elsewhere…..Anyway, back on topic: so far I'm loving this book!.</p>
+                <li> Odobald Oddburrow</li>
+               
+            </div>
+        </div>
+    </section>
+
+    <h2 style="text-align: center; font-size: 2em; "> Live Projects</h2>
+   
+    
+
+     <!-- coming soon projects-->
+     <div class="carousel" unique-script-id="w-w-dm-id" style="height: 30%; align-items: center;">
+        <h2 style="text-align: center; font-size: 2em; "> Lunching Soon</h2>
+        <div class="responsive-container-block bigContainer">
+          <div class="responsive-container-block Container">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="card">
+                    <a href="">
+                        <img class="cardImg" src="banner -Lord of the rings.jpg">
+                    </a>
+                    <!--Counter 1-->
+
+                    <p class="timerCountdown" id="Product1"></p>
+
+                    <script>
+                        // Set the date we're counting down to
+                        var countDownDate1 = new Date("mar 28, 2025 12:00:00").getTime();
+
+                        // Update the count down every 1 second
+                        var x = setInterval(function() {
+
+                        // Get today's date and time
+                        var now = new Date().getTime();
+                            
+                        // Find the distance between now and the count down date
+                        var distance = countDownDate1 - now;
+                            
+                        // Time calculations for days, hours, minutes and seconds
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                            
+                        // Output the result in an element with id="Product1"
+                        document.getElementById("Product1").innerHTML = "Launch in  " + days + "d " ;
+                            
+                        // If the count down is over, write some text 
+                        if (distance < 0) {
+                            clearInterval(x);
+                            document.getElementById("Product1").innerHTML = "EXPIRED";
+                        }
+                        }, 1000);
+                    </script>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="card">
+                    <a href="">
+                    <img class="cardImg" src="InSalt banner.jpg">
+                    </a>
+                    <!--Counter 2-->
+                    <p class="timerCountdown" id="Product2"></p>
+
+                    <script>
+                    // Set the date we're counting down to
+                    var countDownDate2 = new Date("apr 25, 2025 15:37:25").getTime();
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                    // Get today's date and time
+                    var now = new Date().getTime();
+                        
+                    // Find the distance between now and the count down date
+                    var distance = countDownDate2 - now;
+                        
+                    // Time calculations for days, hours, minutes and seconds
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                        
+                    // Output the result in an element with id="Product2"
+                    document.getElementById("Product2").innerHTML = "Launch in  " + days + "d ";
+                        
+                    // If the count down is over, write some text 
+                    if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("Product2").innerHTML = "EXPIRED";
+                    }
+                    }, 1000);
+                    </script>
+                  </div>
+                </div>
+                
+            </div>
+            <div class="swiper-pagination container-block">
+            </div>
+          </div>
+        </div>
+      </div>     
+    
+    <!-- Coming soon script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(`[unique-script-id="w-w-dm-id"] .mySwiper`, {
+        loop: true,
+  
+        pagination: {
+        el: `[unique-script-id="w-w-dm-id"] .swiper-pagination`,
+        clickable: true,
+        },
+        breakpoints: {
+          100: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+          },
+          500: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+          },
+          769: {
+        slidesPerView: 1.5,
+        spaceBetween: 30,
+         },
+         1024: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+          },
+  
+        },
+        autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        },
+        
+        });
+    </script>
+
+    <!-- Previous Projects-->
+    <!--<section style="padding: 20px; text-align: center;">
+        <h2 style="color: #ccc;">Gallery</h2>
+        <div class="previousGallery">
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/955c2ccd-5016-491d-852c-ded20dd11591/0_1.png" alt="Image 1" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/973499e2-da58-4663-b338-8bae932380f6/0_2.png" alt="Image 2" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/fdf4fdc6-5c98-4402-8b30-ff432623ce2a/0_0.png" alt="Image 3" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/89df76b7-ca8c-41e7-9374-63f59c9fa706/0_0.png" alt="Image 4" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/003de75b-1528-4251-86c1-c5ec39dfc6a0/0_2.png" alt="Image 5" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/db5efede-a194-4370-8bc8-061b48676f6b/0_1.png" alt="Image 6" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/fdf4fdc6-5c98-4402-8b30-ff432623ce2a/0_0.png" alt="Image 3" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <img src="https://cdn.midjourney.com/89df76b7-ca8c-41e7-9374-63f59c9fa706/0_0.png" alt="Image 4" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/003de75b-1528-4251-86c1-c5ec39dfc6a0/0_2.png" alt="Image 5" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+            <div class="previousBook">
+                <a href="https://google.com">
+                <img src="https://cdn.midjourney.com/db5efede-a194-4370-8bc8-061b48676f6b/0_1.png" alt="Image 6" >
+                <div class="previousBookText">Price</div>
+                <div class="previousBookText">Pages</div>
+                </a>
+            </div>
+        </div>
+    </section>
+-->
+
+<footer style="background-color: #333; color: white; padding: 20px;  display: flex; justify-content: space-between; flex: 1 2 auto;">
+    <img class="heroLogo" style="padding-left: 60px;" src="logo.png" alt="Logo" >
+    
+    
+    
+    
+    <div style="padding-left: 200px;">
+        <div style="height: 40px;"></div>
+        <p>&copy; 2023 Verseluft. All rights reserved.</p>
+        <a href="https://facebook.com" style="color: white; margin: 0 10px;">Facebook</a>
+        <a href="https://twitter.com" style="color: white; margin: 0 10px;">Twitter</a>
+        <a href="https://instagram.com" style="color: white; margin: 0 10px;">Instagram</a>
+    
+    </div>
+    <form name="submit-to-google-sheet" class="newsletterForm"  >
+        <input type="email" name="Email" placeholder="Email for Newsletter" class="emailInput">
+        <button type="submit" class="emailButton">Subscribe</button>
+        <span id="msg"></span>
+    </form>
+    
+</footer>
+
+<!-- Newsletter script-->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzYwUU7BGlywF_0X3nmTVzCgQ2kIO74g-Ag7O1WAYWI14rRcejZUmpgC45LFlfJESz8FQ/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Thank You for Subscribing!"
+            setTimeout(function(){
+                msg.innerHTML = ""
+
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+     <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,746 @@
+/* font import*/
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Great+Vibes&family=Monomaniac+One&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .great-vibes-regular {
+    font-family: "Great Vibes", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ubuntu-light {
+    font-family: "Ubuntu", serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .ubuntu-regular {
+    font-family: "Ubuntu", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ubuntu-medium {
+    font-family: "Ubuntu", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .ubuntu-bold {
+    font-family: "Ubuntu", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .ubuntu-light-italic {
+    font-family: "Ubuntu", serif;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .ubuntu-regular-italic {
+    font-family: "Ubuntu", serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .ubuntu-medium-italic {
+    font-family: "Ubuntu", serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+  
+  .ubuntu-bold-italic {
+    font-family: "Ubuntu", serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
+  .monomaniac-one-regular {
+    font-family: "Monomaniac One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+/* Css Codes*/
+body{
+    background-color: black;
+    color: #eee;
+    margin: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: gray;
+    text-decoration: underline;
+}
+
+.hero{
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center;
+}
+
+
+.heroTitle{
+    
+    color: rgb(243, 168, 6);
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0px;
+    padding-left: 30px;
+    text-align: center;
+    margin-left: 0%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    font-weight: 700;
+
+}
+.heroLogo{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    z-index: 50;
+    
+    display: block;
+    right: 0%;
+}
+
+.heroDescription {
+    font-size: 2.5em;
+    padding-right: 5%; 
+    font-weight:700 ;
+    margin-top: 1%;
+    text-align: left;
+    font-family: "Great Vibes", serif;
+    color: #ffffff;
+    
+}
+
+.hero p{
+    font-size: 20px; padding-top: 10%;
+    left: 50%;
+    text-align: center;
+   
+    color: #001cb9;
+    text-shadow: #dadada 0px 0px 5px, #dadada 0px 0px 10px, #dadada 0px 0px 15px;
+
+
+}
+
+.newsletterForm{
+    background: #fff;
+    display: flex;
+    height: 40px;
+    margin-top: 50px;
+    margin-right:20px ;
+}
+
+.emailInput{
+    border: 0;
+    outline: none;
+    padding: 0px 20px;
+    height: 42px;
+    width: 300px;
+    font-size: 18px;
+    align-items: center;
+}
+
+.emailButton{
+    background: #ca8e0c;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 75px;
+    cursor: pointer;
+}
+.emailButton:hover{
+    background: #f1683a;
+
+}
+.heroImg{
+    width: 100%; 
+    height: 70vh; 
+    position: relative; 
+    top: 0; 
+    left: 0; 
+    object-fit: cover; 
+    transform: scaleX(1);
+}
+
+.hero span{
+    color: rgb(12, 248, 51);
+    margin-top: 10px;
+    display: block;
+
+}
+
+
+.testimonials div p {
+    color: #ccc; padding: 0px 10px 10px 10px;
+}
+
+.testimonials div li {
+    color: #ccc; padding: 00px 40px 0px 040px; text-align: right;
+}
+
+.testimonialsSection{
+    padding: 20px; text-align: center; position: relative; top: 0%; border-bottom: 2px solid #ccc; margin-top:-5px;
+}
+
+.testimonials{
+    display: flex; justify-content: space-around; margin-top: 20px; width: 80%; margin-left: 10%; 
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.testimonialsCard{
+    width: 20%; border: 1px solid #ccc; border-radius: 10px; padding: 20px; text-align: left;
+    min-width: 250px;
+}
+
+.testimonialsCard img{
+    border-radius: 50%; float: left; margin-right: 00px; position: relative; width: 25%;
+    margin-top: -20%; padding-left: 10%;
+}
+
+.header
+{
+
+align-items: center;
+flex-direction: row;
+width: 100%;
+padding-top: 10px;
+
+}
+
+.searchBar{
+    padding: 5px; border-radius: 5px; border: 1px solid #ccc;
+}
+
+/* carousel */
+.carousel{
+  width: 80vw;  
+  height: 80vh;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  border-bottom: 2px solid #fff; 
+}
+.carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.carousel .list .item img{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.65);
+}
+
+.carousel .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: white;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.925);
+}
+
+
+.carousel .list .item .content .author{
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 10px;
+    
+}
+
+.carousel .list .item .content .title, .carousel .list .item .content .topic {
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 1.3em;
+   
+}
+.carousel .list .item .content .topic{
+    color: #40f13a;
+
+}
+
+.carousel .list .item .content .timerCountdownLive{
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 1em;
+}
+
+.carousel .list .item .description{
+    width: 70%;
+}
+
+
+.carousel .list .item .content .buttons {
+   display: grid;
+   grid-template-rows: 160px;
+   gap: 5px;
+   
+   
+}
+.carousel .list .item .content .buttons a{
+    display: grid;
+    grid-template-columns: repeat(2, 230px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+    
+ }
+
+.carousel .list .item .content button {
+    border: none;
+    background-color: #40f13a;
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.carousel .list .item .content .buttons a:nth-child(2) {
+background-color: transparent;
+color: #eee;
+border: 1px solid #eee;
+
+}
+
+/* thumbnail */
+
+.thumbnail{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 20px;
+}
+
+.thumbnail .item{
+    width: 150px;
+    height: 220px;
+    flex-shrink: 0;
+    position: relative;
+
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnail .item .content{
+position: absolute;
+bottom: 10px;
+right: 10px;
+left: 10px;
+}
+
+.thumbnail .item .content .title{
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 5px 10px #0004;
+}
+
+/* arrows*/
+
+.arrows{
+    position: absolute;
+    top: 57%;
+    right: 29%;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #eee4;
+    border: none;
+    font-family: monospace;
+    color: #fff;
+    font-weight: bold;
+    font-size: larger;
+    transition: .5s;
+    z-index: 100;
+}
+
+.arrows button:hover{
+    background-color: #eee;
+    color: #555;
+}
+
+.carousel .list .item:nth-child(1){
+    z-index: 1;
+}
+
+.carousel .list .item:nth-child(1) .author,
+.carousel .list .item:nth-child(1) .title,
+.carousel .list .item:nth-child(1) .topic,
+.carousel .list .item:nth-child(1) .description,
+.carousel .list .item:nth-child(1) .buttons,
+.carousel .list .item:nth-child(1) .timerCountdownLive{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+@keyframes showContent{
+    to{
+        transform: translateY(00px);
+        filter: blur(0px); 
+        opacity: 1; 
+    }
+   
+}
+
+.carousel .list .item:nth-child(1) .title{
+    animation-delay: 1.2s;
+}
+
+.carousel .list .item:nth-child(1) .topic{
+    animation-delay: 1.4s;
+}
+.carousel .list .item:nth-child(1) .description{
+    animation-delay: 1.6s;
+}
+.carousel .list .item .content .timerCountdownLive{
+    animation-delay: 1.8s;
+
+}
+.carousel .list .item:nth-child(1) .buttons{
+    animation-delay: 2s;
+}
+
+/* effect next click*/
+
+.carousel.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    border-radius: 20px;
+    animation: showImage 0.5s linear 1 forwards;
+    }
+
+    @keyframes showImage{
+        to{
+            width: 100%;
+            height: 100%;
+            left: 0;
+            bottom: 0;
+            border-radius: 0;
+        }
+    }
+
+    .carousel.next .thumbnail .item:nth-last-child(1){
+        width: 0;
+        overflow: hidden;
+        animation: showThumbnail 0.5s linear 1 forwards;
+    }
+
+    @keyframes showThumbnail{
+        to{
+            width: 150px;
+        }
+    }
+
+    .carousel.next .thumbnail{
+        transform: translateX(150px) ;
+        animation: transformThumbnail .5s linear 1 forwards; 
+    }
+
+    @keyframes transformThumbnail{
+        to{
+            transform: translateX(0); 
+        }
+    }
+
+    /* effect prev click*/
+    .carousel.prev .list .item:nth-child(2){
+        z-index: 2;
+    }
+
+    .carousel.prev .list .item:nth-child(2) img{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation: outImage 0.5s linear 1 forwards;
+    } 
+    @keyframes outImage{ 
+        to{
+            width: 150px;
+            height: 220px;
+            left: 50%;
+            bottom: 50px;
+            border-radius: 20px;
+        }
+    }    
+
+    .carousel.prev .thumbnail .item:nth-child(1){
+        width: 0px;
+        overflow: hidden;
+        opacity: 0;
+        animation: showThumbnail 0.5s linear 1 forwards; 
+    }
+
+    .carousel.prev .list .item:nth-child(2) .author,
+    .carousel.prev .list .item:nth-child(2) .title,
+    .carousel.prev .list .item:nth-child(2) .topic,
+    .carousel.prev .list .item:nth-child(2) .description,
+    .carousel.prev .list .item:nth-child(2) .buttons{
+        animation: contentOut 1.5s linear 1 forwards;
+    }
+
+    @keyframes contentOut{
+        to{
+            transform: translatey(150px);
+            filter: blur(20px);
+            opacity: 0;
+        }
+    }  
+
+    .carousel.next .arrows button,
+    .carousel.prev .arrows button{
+        pointer-events: none;
+    }
+
+    .time{
+        width:100%;
+        height: 3px;
+        background-color: #40f13a;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+
+    .carousel.next .time,
+    .carousel.prev .time{
+        width: 100%;
+        animation: timeRunning 2s linear 1 forwards;
+    }
+
+    @keyframes timeRunning{
+        to{
+            width: 0;
+        }
+    }
+
+
+/* responcive codes*/
+    @media screen and (max-width: 678px) {
+        .carousel .list .item .content{
+        padding-right: 0px;
+        }
+        .carousel .list .item .content .title{
+            font-size: 30px;
+        }
+        .header ul li{
+            margin-right: 0px;
+            
+        }
+        .searchBar{
+            display: none;
+        }
+        .heroTitle{
+            font-size: 2.5em;
+            margin-left: -0%;
+        }
+        .heroDescription{
+            font-size: 1.3em;
+            margin-left: -30%;
+        }
+        .previousBook:nth-child(6),
+        .previousBook:nth-child(7),
+        .previousBook:nth-child(8),
+        .previousBook:nth-child(9),
+        .previousBook:nth-child(10){
+            display: none;
+        }
+        .emailInput{
+            width: 200px;
+        }
+    }
+
+
+    @media screen and (max-width: 1060px) and (min-width: 679px) {
+            .heroTitle{
+                font-size: 3.5em;
+            
+            }
+            .heroDescription{
+                font-size: 1.6em;
+            }
+    }
+
+/* Gallery Lunching Soon*/
+
+.carousel .responsive-container-block {
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    justify-content: center;
+  }
+  
+  .carousel * {
+    font-family: Nunito, sans-serif;
+  }
+  
+  .carousel .responsive-container-block.bigContainer {
+    padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+  
+  .carousel .responsive-container-block.Container {
+    max-width: 1320px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-left: auto;
+    position: relative;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 70px;
+    padding-left: 10px;
+  }
+  
+  .carousel .cardImg {
+    width: 100%;
+  }
+  
+  .carousel .container-block {
+    min-height: 75px;
+    height: fit-content;
+    width: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    display: block;
+  }
+  
+  .carousel .swiper.mySwiper {
+    width: 100%;
+  }
+  
+  .carousel .swiper-slide {
+    width: 100%;
+  }
+  
+  .carousel .swiper-wrapper {
+    width: 100%;
+  }
+  
+  .carousel .swiper-pagination.container-block {
+    top: auto;
+    bottom: 5px;
+    min-height: 20px;
+  }
+  .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    background-color: white;
+    color: #eee;
+
+  }
+
+  .timerCountdown{
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 3px;
+    font-family: "Monomaniac One", serif;
+
+  }
+
+
+
+  /*Prevoius Books*/
+
+  .previousGallery{
+    display: flex; 
+    gap: 10px; 
+    width: 80%; 
+    margin:  auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .previousBook{
+    position: relative; 
+    width: 250px; 
+    height: 100%; 
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 10px #0004;
+  }
+
+  .previousBook:hover img{
+    width: 350px;
+    margin-left: -25px;
+    filter: brightness(120%);
+    filter: grayscale(0);
+  }
+
+  .previousBook img{
+    width: 300px;
+    height: 400px;
+    filter: grayscale(0.7);
+    object-fit: cover;
+  }
+
+  .previousBookText{
+    position: absolute; 
+    text-align: left;
+    top: 90%;
+    color: rgb(255, 255, 255); 
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.349);
+    width: 100%;
+    padding-left: 10px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.previousBookText:nth-child(2) {
+
+padding-left: 70%;
+
+background-color: transparent;
+
+}

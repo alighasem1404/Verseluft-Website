@@ -1,0 +1,299 @@
+<!Landing html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="landingBody">
+
+
+
+<div style="height: 200px;">
+
+<header class="header">
+    <nav>
+        <ul style="display: flex; justify-content: space-between; list-style-type: none; padding: 0; margin: 0;">
+            <li style="flex: 1;">
+                <ul style="display: flex; list-style-type: none; padding: 0; margin: 0;">
+                    <li style="margin-right: 20px;">
+                        <a href="#home">
+                            <img src="https://cdn.midjourney.com/766070f3-b7f1-44fe-a159-2c925218ba37/0_3.png" alt="Logo" style="height: 40px;mix-blend-mode: multiply;">
+                        </a>
+                    </li>
+                    <li style="margin-right: 20px;"><a href="#home">Home</a></li>
+                    <li style="margin-right: 20px;"><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li style="margin-left: 40px;">
+                        <input type="slideText" placeholder="Search..." style="padding: 5px; border-radius: 5px; border: 1px solid #ccc;">
+                    </li>
+                </ul>
+            </li>
+            <li style="flex: 1; Text-align: right;">
+                <ul style="display: flex; justify-content: flex-end; list-style-type: none; padding: 0; margin: 0;">
+                    <li style="margin-left: 20px;"><a href="#login">Login</a></li>
+                    <li style="margin-left: 20px;"><a href="#signup">Sign Up</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+</div>
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="https://cdn.midjourney.com/3be3346c-8431-48ab-9927-08d602837219/0_0.png" style="width:100%">
+        <div class="slideText">Caption slideText 1</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="https://cdn.midjourney.com/966e73cb-79f7-472d-a3a4-e73be605ff5f/0_1.png" style="width:100%">
+        <div class="slideText">Caption slideText 2</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="https://cdn.midjourney.com/f66f598e-aa66-41e4-9fa0-fa40c8612e4f/0_2.png" style="width:100%">
+        <div class="slideText">Caption slideText 3</div>
+    </div>
+    <div class="mySlides fade">
+        <img src="https://cdn.midjourney.com/cede5b46-3c0b-4ac1-b49e-3dc586404457/0_0.png" style="width:100%">
+        <div class="slideText">Caption slideText 4</div>
+    </div>
+</div>
+
+<style>
+    .slideText {
+        color: #f2f2f2;
+        font-size: 35px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 180px;
+        width: 100%;
+        Text-align: left;
+    }
+</style>
+
+
+    <script>
+    
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("mySlides");
+    let timer;
+    let progressBars = [];
+
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}    
+        slides[slideIndex-1].style.display = "block";  
+        progressBars[slideIndex-1].style.width = "0%";
+        updateProgressBar(progressBars[slideIndex-1]);
+        timer = setTimeout(showSlides, 10000); // Change image every 10 seconds
+    }
+
+    function updateProgressBar(progressBar) {
+        let width = 0;
+        let interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width++;
+                progressBar.style.width = width + "%";
+            }
+        }, 100);
+    }
+
+    let progressIntervals = [];
+
+function stopSlides() {
+    clearTimeout(timer);
+    progressIntervals.forEach(interval => clearInterval(interval));
+}
+
+function startSlides() {
+    showSlides();
+}
+
+function updateProgressBar(progressBar, startWidth = 0) {
+    let width = startWidth;
+    let interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+        } else {
+            width++;
+            progressBar.style.width = width + "%";
+        }
+    }, 100);
+    progressIntervals.push(interval);
+}
+
+for (let i = 0; i < slides.length; i++) {
+    let progressBar = document.createElement("div");
+    progressBar.style.position = "relative";
+    progressBar.style.bottom = "0";
+    progressBar.style.left = "0";
+    progressBar.style.height = "5px";
+    progressBar.style.backgroundColor = "white";
+    progressBar.style.width = "0%";
+    slides[i].appendChild(progressBar);
+    progressBars.push(progressBar);
+
+    slides[i].addEventListener('mouseover', () => {
+        stopSlides();
+        let currentWidth = parseInt(progressBar.style.width);
+        progressIntervals[i] = currentWidth;
+    });
+
+    slides[i].addEventListener('mouseout', () => {
+        updateProgressBar(progressBar, progressIntervals[i]);
+        timer = setTimeout(showSlides, 10000 - (progressIntervals[i] * 100));
+    });
+}
+
+   
+    showSlides();
+    </script>
+  
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <script>
+        function plusSlides(n) {
+            clearTimeout(timer);
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+            progressBars[slideIndex-1].style.width = "0%";
+            updateProgressBar(progressBars[slideIndex-1]);
+            timer = setTimeout(() => showSlides(slideIndex += 1), 10000); // Change image every 10 seconds
+        }
+
+        showSlides(slideIndex);
+    </script>
+    
+    <div style="height: 200px;">
+    </div>
+
+    <div style="Text-align: center; margin-top: 20px;">
+        <h2 style="color: #000;">Gallery</h2>
+        <hr style="width: 50%; margin: 10px auto; border: 1px solid #ccc;">
+    </div>
+    <div class="image-gallery">
+        <div class="gallery-item" style="Text-align: center;">
+            <div>
+                <img src="https://cdn.midjourney.com/e0a5b5d1-8288-4aa4-a9b8-e0ae27e067cc/0_0.png" alt="Gallery Image 1" style="max-width: 100%;">
+            </div>
+            
+                <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+            
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/51db2c60-8b84-402f-8c82-8ba0dfc69072/0_3.png" alt="Gallery Image 2" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/fdf4fdc6-5c98-4402-8b30-ff432623ce2a/0_0.png" alt="Gallery Image 3" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/e891a35f-0bba-4342-a16e-5ed92f5575f0/0_0.png" alt="Gallery Image 4" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/5885d81c-9c60-4c4e-9789-b225716c8181/0_3.png" alt="Gallery Image 5" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/955c2ccd-5016-491d-852c-ded20dd11591/0_1.png" alt="Gallery Image 6" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/e5e49900-698a-448d-9f3d-e90fa4c9c3ef/0_0.png" alt="Gallery Image 7" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/0d497737-e706-46e0-8554-573d52112d2a/0_1.png" alt="Gallery Image 8" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/6d1af775-a482-436c-84cb-d83451af826b/0_0.png" alt="Gallery Image 9" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/b460e65b-b218-4573-a69d-ede95f30b8c1/0_0.png" alt="Gallery Image 10" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+    </div>
+    <div style="Text-align: center; margin-top: 20px;">
+        <a href="#more" style="Text-decoration: none; color: #000; font-size: 18px;">See More</a>
+    </div>
+    <div style="height: 100px;">
+    </div>
+
+    <div style="Text-align: center; margin-top: 20px;">
+        <h2 style="color: #000;">Gallery</h2>
+        <hr style="width: 50%; margin: 10px auto; border: 1px solid #ccc;">
+    </div>
+    <div class="image-gallery">
+        <div class="gallery-item" style="Text-align: center;">
+            <div>
+                <img src="https://cdn.midjourney.com/e0a5b5d1-8288-4aa4-a9b8-e0ae27e067cc/0_0.png" alt="Gallery Image 1" style="max-width: 100%;">
+            </div>
+            
+                <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+            
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/51db2c60-8b84-402f-8c82-8ba0dfc69072/0_3.png" alt="Gallery Image 2" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/fdf4fdc6-5c98-4402-8b30-ff432623ce2a/0_0.png" alt="Gallery Image 3" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/e891a35f-0bba-4342-a16e-5ed92f5575f0/0_0.png" alt="Gallery Image 4" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/5885d81c-9c60-4c4e-9789-b225716c8181/0_3.png" alt="Gallery Image 5" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/955c2ccd-5016-491d-852c-ded20dd11591/0_1.png" alt="Gallery Image 6" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/e5e49900-698a-448d-9f3d-e90fa4c9c3ef/0_0.png" alt="Gallery Image 7" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/0d497737-e706-46e0-8554-573d52112d2a/0_1.png" alt="Gallery Image 8" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/6d1af775-a482-436c-84cb-d83451af826b/0_0.png" alt="Gallery Image 9" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://cdn.midjourney.com/b460e65b-b218-4573-a69d-ede95f30b8c1/0_0.png" alt="Gallery Image 10" >
+            <p style="font-size: 16px; margin-top: 10px;">Description of Gallery Image 1</p>
+        </div>
+    </div>
+    <div style="Text-align: center; margin-top: 20px;">
+        <a href="#more" style="Text-decoration: none; color: #000; font-size: 18px;">See More</a>
+    </div>
+    <div style="height: 400px;">
+    </div>
+</body>
+</html>

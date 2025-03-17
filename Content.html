@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="StylesContent.css">
+</head>
+<body>
+    <!-- header -->
+    <button id="togglelightButton" onclick="toggleLight()" class="lightButton">&#9728;</button>
+    <script>
+        function toggleLight() {
+            const body = document.body;
+            const button = document.getElementById('togglelightButton');
+
+            body.classList.toggle('dark-mode');
+
+            
+        }
+    </script>
+
+    <header style="display: flex; justify-content: space-between; width: 80vw; margin: auto; " >
+        <div style="display: flex; align-items: flex-start; gap: 0px; flex-direction: column;">
+        <h1 class="headerTitle" style="font-size: 4em; padding-top: 10px;"> Verseluft</h1>
+        <h1 class="headerTitle" style="text-align: right; padding-left: 190px;">Publishing</h1>
+        </div>
+        <p class="headerDescription" style="padding-top: 20px;" >Where the fantasy becomes the reality</p>
+        <img class="headerLogo" style="width: 100px; height: 100px; padding-top: 10px;" src="logo.png" alt="Logo" >
+
+        
+
+    </header>
+
+
+    <button id="toggleButton" onclick="toggleGallery()" class="hideButton">&#9654;</button>
+    
+
+
+<div class="vertical-gallery">
+        
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 1"><div class="overlay">Image 1</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 2"><div class="overlay">Image 2</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 3"><div class="overlay">Image 3</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 4"><div class="overlay">Image 4</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 5"><div class="overlay">Image 5</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 6"><div class="overlay">Image 6</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 7"><div class="overlay">Image 7</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 8"><div class="overlay">Image 8</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 9"><div class="overlay">Image 9</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 10"><div class="overlay">Image 10</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 11"><div class="overlay">Image 11</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 12"><div class="overlay">Image 12</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 13"><div class="overlay">Image 13</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 14"><div class="overlay">Image 14</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 15"><div class="overlay">Image 15</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 16"><div class="overlay">Image 16</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 17"><div class="overlay">Image 17</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 18"><div class="overlay">Image 18</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 19"><div class="overlay">Image 19</div></div>
+        <div class="image-container"><img src="https://s8.uupload.ir/files/1_qngt.png" alt="Image 20"><div class="overlay">Image 20</div></div>
+    </div>
+
+
+    <!-- TOC -->
+    
+   
+    <!-- Toggle Button -->
+    
+
+    <script>
+        function toggleGallery() {
+            const gallery = document.querySelector('.vertical-gallery');
+            const button = document.getElementById('toggleButton');
+            if (gallery.style.display === 'none') {
+                gallery.style.display = 'flex';
+                button.innerHTML = '&#9654;'; // Up arrow
+                button.style.right = '170px';
+              
+            } else {
+                gallery.style.display = 'none';
+                button.innerHTML = '&#9664;'; // Down arrow
+                button.style.right = '0';
+            }
+        }
+        
+    </script>
+    
+
+    
+
+    <!-- contents -->
+    <div class="content">
+        <img src="https://i.kickstarter.com/assets/047/932/608/ef34801797d558f5a8735405fdd1d159_original.jpg?fit=scale-down&origin=ugc&q=92&v=1737643602&width=680&sig=IATVc9SedLvrkfvNYmo%2F5MWOqGp03PZ2gIO7h8HYioI%3D" alt="Banner Image" id="banner" name="Banner">
+        <h1 class="title" id="title" name="Title">Grocery Store</h1>
+        <p id="paragraph1" name="Paragraph 1">The Gilded Gourd is a charming establishment with a thatched roof and wooden walls adorned with climbing ivy. Inside, the store is illuminated by glowing lanterns hanging from exposed wooden beams. The shelves are stocked with a bountiful assortment of local produce, herbs, and handmade goods, creating a welcoming and earthy atmosphere. <br> The atmosphere of The Gilded Gourd is bustling yet harmonious, with townsfolk of all sorts coming and going. The air is always filled with the fresh scents of herbs and spices mixed with the earthy aroma of fresh produce. The shopkeeper greets each customer with a warm smile, creating a friendly and communal vibe where locals often pause to exchange news and gossip.</p>
+
+        <img src="https://s8.uupload.ir/files/1_nuyj.png" id="image1" name="Image1">
+        <p class="imageDescription" id="paragraph1" name="Paragraph 1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quaerat animi mollitia quasi neque harum eum omnis iste fuga, aliquam doloribus commodi assumenda odio! Adipisci odio perferendis commodi tempora odit.</p>
+        
+        <h1 class="title" id="title" name="Title">Elara Thistlewood</h1>
+        <p id="paragraph1" name="Paragraph 1">Elara Thistlewood is a middle-aged woman who hails from a long line of herbalists and grocers. She inherited The Gilded Gourd from her parents and transformed it into one of the most beloved shops in town, known for its quality produce and rare ingredients. Elara is deeply connected to the community, often sponsoring local events and festivals.
+            <br><br>
+            Elara is a woman of average height with a warm smile and sparkling green eyes that reflect her friendly nature. Her hair is a tangle of curly auburn, often pulled back with a simple leather band. She dresses in comfortable, earth-toned clothes that allow her to work easily around the shop. Elara is known for her persuasive charm and a keen sense of humour, making her a memorable and liked figure among the townsfolk. Her mannerisms include a thoughtful chin tap when considering a deal and a habit of humming softly while arranging her goods."</p>
+        
+        <img src="https://s8.uupload.ir/files/1_qngt.png" id="image1" name="Image1">
+        <p class="imageDescription" id="paragraph1" name="Paragraph 1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias maxime consequuntur rerum ex accusantium ullam eligendi ab, nihil reiciendis quae perspiciatis at, impedit debitis earum illo fugiat expedita facere quisquam.</p>
+        
+        <h1 class="title" id="title" name="Title">title</h1>
+        <p id="paragraph1" name="Paragraph 1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum cumque ipsa blanditiis laboriosam sunt perspiciatis facilis minima, quaerat voluptate voluptates. Quisquam accusamus, deserunt itaque ipsam facere quibusdam modi nemo voluptates?</p>
+        
+        <img src="https://s8.uupload.ir/files/backerton_final_4wj7.jpg" id="image1" name="Image1">
+        <p class="imageDescription" id="paragraph1" name="Paragraph 1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, voluptate fugiat temporibus mollitia aliquam nulla enim, ea porro rerum quo, adipisci vero quam assumenda delectus magnam corporis a. Quaerat, iusto?</p>
+        
+        <h1 class="title" id="title" name="Title">title</h1>
+        <p id="paragraph1" name="Paragraph 1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis distinctio porro, minima repudiandae cupiditate veritatis cumque. Inventore, vero. Error maxime reprehenderit fugit sequi aliquid recusandae temporibus, illum nobis facere saepe?</p>
+
+        
+    </div>
+    <div style="height: 150px;"></div>
+    
+    <script>
+        const url = "https://script.google.com/macros/s/AKfycbzX8-vJYzfdwGECBsBSsHQgT1zNVNx8coPo9D9SRND1vb2A7H-Q9wph6_Wk3fTrC4vXPA/exec";
+        let selectedname = "4s"; // Initial value
+
+// Function to update the displayed selected name
+function updateSelectedNameDisplay() {
+    const selectedNameElement = document.getElementById('selectedNameDisplay');
+    if (selectedNameElement) {
+        selectedNameElement.innerText = `Current selected name: ${selectedname}`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Create and append the display element
+    const selectedNameElement = document.createElement('p');
+    selectedNameElement.id = 'selectedNameDisplay';
+    selectedNameElement.style.textAlign = 'center';
+    selectedNameElement.style.fontSize = '1.2em';
+    selectedNameElement.style.marginTop = '20px';
+    document.body.insertBefore(selectedNameElement, document.querySelector('.content'));
+
+    // Initial display update
+    updateSelectedNameDisplay();
+});
+
+document.querySelectorAll('.vertical-gallery img').forEach((img, index) => {
+    img.addEventListener('click', () => {
+        const names = [
+            "egyptgods", "name2", "name3", "name4", "name5",
+            "name6", "name7", "name8", "name9", "name10",
+            "name11", "name12", "name13", "name14", "name15",
+            "name16", "name17", "name18", "name19", "name20"
+        ];
+        selectedname = names[index];
+        updateSelectedNameDisplay(); // Update the display here
+        showLoading();
+        fetch(`${url}?type=rowkey&rowkey=${selectedname}`)
+            .then(response => response.json())
+            .then(({ data }) => {
+                console.log("Fetched Data:", data);
+                populateData(data);
+                hideLoading();
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+                hideLoading();
+            });
+    });
+});
+
+// Show loading overlay
+function showLoading() {
+    document.getElementById('loading-overlay').style.display = 'flex';
+}
+
+// Hide loading overlay
+function hideLoading() {
+    document.getElementById('loading-overlay').style.display = 'none';
+}
+
+function populateData(data) {
+        document.getElementById('title').src = data['Title'] || '';
+        document.getElementById('description').innerText = data['Description'] || '';
+        document.getElementById('banner').src = data['Banner'] || '';
+        document.getElementById('sample1').src = data['Sample1'] || '';
+        document.getElementById('sample2').src = data['Sample2'] || '';
+        document.getElementById('sample3').src = data['Sample3'] || '';
+        document.getElementById('sample4').src = data['Sample4'] || '';
+        document.getElementById('sample5').src = data['Sample5'] || '';
+        document.getElementById('sample6').src = data['Sample6'] || '';
+        document.getElementById('sample7').src = data['Sample7'] || '';
+        document.getElementById('sample8').src = data['Sample8'] || '';
+        document.getElementById('sample9').src = data['Sample9'] || '';
+        document.getElementById('sample10').src = data['Sample10'] || '';
+    }
+    
+
+
+
+
+    </script>
+
+
+<footer style="background-color: #333; color: white; padding: 20px;  display: flex; justify-content: space-between; flex: 1 2 auto; ">
+    <img class="headerLogo" style="padding-left: 60px;" src="logo.png" alt="Logo" >
+    
+    
+    
+    <form name="submit-to-google-sheet" class="newsletterForm" style="margin-left: 250px;" >
+        <input type="email" name="Email" placeholder="Email for Newsletter" class="emailInput">
+        <button type="submit" class="emailButton">Subscribe</button>
+        <span id="msg"></span>
+    </form>
+    <div style="padding-left: 000px;">
+        <div style="height: 40px;"></div>
+        <p>&copy; 2023 Verseluft. All rights reserved.</p>
+        <a href="https://facebook.com" style="color: white; margin: 0 10px;">Facebook</a>
+        <a href="https://twitter.com" style="color: white; margin: 0 10px;">Twitter</a>
+        <a href="https://instagram.com" style="color: white; margin: 0 10px;">Instagram</a>
+    
+    </div>
+   
+    <div ></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,393 @@
+
+
+body {
+    background-color: rgb(10, 10, 10);
+    color: #eee;
+    margin: 0;
+
+}
+
+
+.banner{
+    width: 50vw;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.banner img{
+
+    width: 100%;
+}
+
+.products{
+    width: 50vw;
+    text-align: center;
+    padding-top: 40px;
+    margin: auto;
+}
+
+.products h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.products p{
+    width: 80%;
+    margin: auto;
+    line-break: auto;
+    text-align: left;
+    line-height: 1.5;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+}
+
+
+
+/* button */ 
+.button {
+  
+  all: unset;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.6em 2em;
+  border:   rgb(250, 162, 0) solid 0.15em;
+  border-radius: 0.25em;
+  color: rgb(250, 162, 0);
+  font-size: 1.5em;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border 300ms, color 300ms;
+  user-select: none;
+}
+
+.button p {
+  z-index: 1;
+}
+
+.button:hover {
+  color: #ffffff;
+}
+
+.button:active {
+  border-color: red;
+}
+
+.button::after, .button::before {
+  content: "";
+  position: absolute;
+  width: 9em;
+  aspect-ratio: 1;
+  background: rgb(250, 162, 0);
+  opacity: 50%;
+  border-radius: 50%;
+  transition: transform 500ms, background 300ms;
+}
+
+.button::before {
+  left: 0;
+  transform: translateX(-8em);
+}
+
+.button::after {
+  right: 0;
+  transform: translateX(8em);
+}
+
+.button:hover:before {
+  transform: translateX(-1em);
+}
+
+.button:hover:after {
+  transform: translateX(1em);
+}
+
+.button:active:before,
+.button:active:after {
+  background: red;
+}
+
+
+/* Footer and header styles */
+.newsletterForm{
+    background: #fff;
+    display: flex;
+    height: 40px;
+    margin-top: 50px;
+    margin-right:20px ;
+}
+
+.emailInput{
+    border: 0;
+    outline: none;
+    padding: 0px 20px;
+    height: 42px;
+    width: 300px;
+    font-size: 18px;
+    align-items: center;
+}
+
+.emailButton{
+    background: #ca8e0c;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 75px;
+    cursor: pointer;
+}
+.emailButton:hover{
+    background: #f1683a;
+
+}
+
+.heroLogo{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    z-index: 50;
+    
+    display: block;
+    right: 0%;
+}
+
+
+/* hero style*/
+.hero{
+    position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center;
+}
+
+
+.heroTitle{
+    
+    color: rgb(243, 168, 6);
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0px;
+    padding-left: 30px;
+    text-align: center;
+    margin-left: 0%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+    font-weight: 700;
+
+}
+.heroLogo{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    z-index: 50;
+    
+    display: block;
+    right: 0%;
+}
+
+.heroDescription {
+    font-size: 2.5em;
+    padding-right: 5%; 
+    font-weight:700 ;
+    margin-top: 1%;
+    text-align: left;
+    font-family: "Great Vibes", serif;
+    color: #ffffff;
+    
+}
+
+.hero p{
+    font-size: 20px; padding-top: 10%;
+    left: 50%;
+    text-align: center;
+   
+    color: #001cb9;
+    text-shadow: #dadada 0px 0px 5px, #dadada 0px 0px 10px, #dadada 0px 0px 15px;
+
+
+}
+
+/* sample pages*/
+
+.w {
+    width: 80vmin;
+    height: 80vmin;
+    margin: auto;
+}
+.ts {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    --barH: 20%;
+}
+.t {
+    --w: 20%;
+    display: block;
+    width: var(--w);
+    height: var(--barH);
+    position: absolute;
+    bottom: 0;
+    left: var(--l);
+    transform-origin: top left;
+}
+.t img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(0.8);
+}
+[type="radio"] {
+    display: none;
+}
+:checked + label.t {
+    left: 0;
+    bottom: var(--barH);
+    height: calc(100% - var(--barH));
+}
+:checked + label.t img {
+    object-fit: contain;
+}
+.ts {
+    perspective: 100px;
+    perspective-origin: center center;
+    transform-style: preserve-3d;
+    pointer-events: none;
+}
+.ts:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 15px;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.1));
+    transform: rotateX(90deg) scaleX(1.2);
+    transform-origin: bottom center;
+}
+:not(:checked) + .t {
+    transform: translate3d(0, 0, -5px);
+    pointer-events: auto;
+}
+:not(:checked) + .t:hover {
+    transform: translate3d(0, -7px, -5px);
+    box-shadow: 0 30px 30px -25px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+:not(:checked) + .t img {
+    transform: scale(0.9);
+}
+:checked + .t {
+    box-shadow: 0 0 0 transparent;
+    animation: anim 2s 1;
+}
+@keyframes anim {
+    from {
+        transform: rotateY(6deg) rotateX(3deg);
+    }
+}
+.t {
+    transition: transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 1s;
+}
+.t:hover, :checked + .t {
+    transition: transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 0s;
+}
+
+
+/* other products */
+
+ /*Prevoius Books*/
+
+ .previousGallery{
+    display: flex; 
+    gap: 10px; 
+    width: 80%; 
+    margin:  auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .previousBook{
+    position: relative; 
+    width: 250px; 
+    height: 100%; 
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 10px #0004;
+  }
+
+  .previousBook:hover img{
+    width: 350px;
+    margin-left: -25px;
+    filter: brightness(120%);
+    filter: grayscale(0);
+  }
+
+  .previousBook img{
+    width: 300px;
+    height: 400px;
+    filter: grayscale(0.7);
+    object-fit: cover;
+  }
+
+  .previousBookText{
+    position: absolute; 
+    text-align: left;
+    top: 90%;
+    color: rgb(255, 255, 255); 
+    font-size: 2em;
+    background-color: rgba(0, 0, 0, 0.349);
+    width: 100%;
+    padding-left: 10px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.previousBookText:nth-child(2) {
+
+padding-left: 70%;
+
+background-color: transparent;
+
+}
+
+
+/* loading */
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 1);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 80px;
+    aspect-ratio: 1;
+    background:
+      radial-gradient(farthest-side,#000 90%,#0000) 50%/16px 16px no-repeat,
+      conic-gradient(from -90deg at 30px 30px,#0000 90deg,#fff 0) 0 0/50px 50px;
+    animation: l7 1s infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    background:
+      radial-gradient(farthest-side,#000 90%,#0000) 50%/8px 8px no-repeat,
+      conic-gradient(from -90deg at 15px 15px,#0000 90deg,#fff 0) 0 0/25px 25px;
+    animation: l7 1s infinite;
+  }
+  @keyframes l7 {
+    0%   {background-position:50%,0 0}
+    50%  {background-position:50%,50px 0}
+    100% {background-position:50%,50px 50px}
+  }
