@@ -5,8 +5,8 @@ include 'config.php';
 if(isset($_POST['submit'])){
     $name = mysqli_real_escape_string($conn,$_POST['name']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
-    $pass = mysqli_real_escape_string($conn,$_POST['password']);
-    $cpass = mysqli_real_escape_string($conn,$_POST['cpassword']);
+    $pass = mysqli_real_escape_string($conn,md5($_POST['password']));
+    $cpass = mysqli_real_escape_string($conn,md5($_POST['cpassword']));
     $image = $_FILES['image']['name'];
     $image_size = $_FILES['image']['size'];
     $image_tmp_name = $_FILES['image']['tmp_name'];
@@ -56,14 +56,14 @@ if(isset($_POST['submit'])){
 <body>
     <div class="form-container">
     <form action="" method="post" enctype="multipart/form-data">
-        <h3>register now</h3>
+        <h3>register Now</h3>
 
         <?php
             if(isset($message)){
                 foreach($message as $message){
                     echo '<div class="message">'.$message.'</div>';
-    }
-  }
+                }
+            }
         ?>
         <input type="text" name="name"  placeholder="enter username" class="box" required>
         <input type="email" name="email"  placeholder="enter email" class="box" required>
