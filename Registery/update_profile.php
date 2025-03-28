@@ -3,6 +3,10 @@
 include("config.php");
 session_start();
 $user_id = $_SESSION["user_id"];
+$select = mysqli_query($conn,"SELECT * FROM `user_form` WHERE id = '$user_id'") or die('query failed');
+        if(mysqli_num_rows($select) > 0){
+            $fetch = mysqli_fetch_assoc($select);
+        }
 
 if(isset($_POST['update_profile'])){
     $update_name = mysqli_real_escape_string($conn, $_POST['update_name']);
@@ -26,24 +30,31 @@ if(isset($_POST['update_profile'])){
       }
    }
 
-    $update_image = $_FILES['update_image']['name'];
-    $update_image_size = $_FILES['update_image']['size'];
-    $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
-    $update_image_folder = 'uploaded_img/'.$update_image;
-
-    if(!empty($update_image)){
-        if($update_image_size > 2000000){
-            $message[] = 'image size is too large!';
-        }else{
-            $update_image_query = mysqli_query($conn, "UPDATE `user_form` SET image = '$update_image' WHERE id = '$user_id'") or die('query failed');
-            if($update_image_query){
-                move_uploaded_file($update_image_tmp_name, $update_image_folder);
-                $message[] = 'image updated successfully!';
-            }else{
-                $message[] = 'image update failed!';
-            }
-        }
-    }
+   $update_image = $_FILES['update_image']['name'];
+   $update_image_size = $_FILES['update_image']['size'];
+   $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
+   
+   // Get file extension
+   $file_extension = strtolower(pathinfo($update_image, PATHINFO_EXTENSION));
+   // Get username and create new filename
+   $username = $fetch['name']; // Using the username from database
+   $new_filename = $username . '_avatar.' . $file_extension;
+   $update_image_folder = 'uploaded_img/' . $new_filename;
+   
+   if(!empty($update_image)){
+       if($update_image_size > 2000000){
+           $message[] = 'image size is too large!';
+       }else{
+           // Update database with new filename
+           $update_image_query = mysqli_query($conn, "UPDATE `user_form` SET image = '$new_filename' WHERE id = '$user_id'") or die('query failed');
+           if($update_image_query){
+               move_uploaded_file($update_image_tmp_name, $update_image_folder);
+               $message[] = 'image updated successfully!';
+           }else{
+               $message[] = 'image update failed!';
+           }
+       }
+   }
 }
 
 ?>
@@ -61,10 +72,7 @@ if(isset($_POST['update_profile'])){
 <body>
     <div class="update-profile">
         <?php
-        $select = mysqli_query($conn,"SELECT * FROM `user_form` WHERE id = '$user_id'") or die('query failed');
-        if(mysqli_num_rows($select) > 0){
-            $fetch = mysqli_fetch_assoc($select);
-        }
+        
         
         ?>
         <form action="" method="post" enctype="multipart/form-data">
