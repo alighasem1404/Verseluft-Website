@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate NPC Generator for D&D</title>
+</head>
+<body>
+    
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+    </style>
+
+<body>
+<div class="button-container">
+    <button id="Fast" onclick="showSection('fastSection')">Fast</button>
+    <button id="Combat" onclick="showSection('combatSection')">Combat</button>
+    <button id="General" onclick="showSection('generalSection')">General</button>
+    <button id="Social" onclick="showSection('socialSection')">Social</button>
+</div>
+
+<div id="fastSection" class="section" style="display: block;">Fast Section Content</div>
+<div id="combatSection" class="section" style="display: none;">Combat Section Content</div>
+<div id="generalSection" class="section" style="display: none;">General Section Content</div>
+<div id="socialSection" class="section" style="display: none;">Social Section Content</div>
+
+<script>
+    async function loadData() {
+        try {
+            const response = await fetch('npcgeneratordata.json');
+            if (response.ok) {
+                console.log('File loaded successfully.');
+            } else {
+                console.error('Failed to load file:', response.status);
+            }
+        } catch (error) {
+            console.error('Error loading file:', error);
+        }
+    }
+
+    // Load file when the page loads
+    window.onload = loadData;
+</script>
+</body>
+</html>

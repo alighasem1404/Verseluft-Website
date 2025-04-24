@@ -1,0 +1,704 @@
+{
+    "races": {
+      "human": {
+        "description": "A versatile and adaptable race found throughout the world",
+        "age_range": {
+          "min": 16,
+          "max": 80
+          
+        },
+        "height_range": {
+          "min": 60,
+          "max": 78,
+          "unit": "inches"
+        },
+        "weight_range": {
+          "min": 100,
+          "max": 250,
+          "unit": "pounds"
+        },
+        "male_names": ["James", "Robert", "John", "Michael", "William"],
+        "female_names": ["Mary", "Jennifer", "Linda", "Elizabeth", "Barbara"],
+        "surnames": ["Smith", "Johnson", "Williams", "Brown", "Jones"],
+        "common_languages": "Common"
+        
+      },
+      "elf": {
+        "description": "A magical people of otherworldly grace",
+        "age_range": {
+          "min": 20,
+          "max": 750
+          
+        },
+        "height_range": {
+          "min": 54,
+          "max": 74,
+          "unit": "inches"
+        },
+        "weight_range": {
+          "min": 90,
+          "max": 170,
+          "unit": "pounds"
+        },
+        "male_names": ["Aelar", "Aramil", "Aust", "Enialis", "Heian"],
+        "female_names": ["Adrie", "Caelynn", "Drusilia", "Enna", "Felosial"],
+        "surnames": ["Amakiir", "Amastacia", "Galanodel", "Holimion", "Liadon"],
+        "common_languages": ["Common", "Elvish"],
+        "racial_traits": ["Darkvision", "Keen Senses", "Fey Ancestry", "Trance"]
+      }
+    ,
+    "dwarf": {
+      "description": "A stout and hardy race known for their resilience and craftsmanship",
+      "age_range": {
+        "min": 20,
+        "max": 350
+      },
+      "height_range": {
+        "min": 48,
+        "max": 60,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 150,
+        "max": 250,
+        "unit": "pounds"
+      },
+      "male_names": ["Adrik", "Baern", "Barendd", "Brottor", "Dain"],
+      "female_names": ["Amber", "Artin", "Audhild", "Bardryn", "Dagnal"],
+      "surnames": ["Balderk", "Dankil", "Gorunn", "Holderhek", "Loderr"],
+      "common_languages": ["Common", "Dwarvish"],
+      "racial_traits": ["Darkvision", "Dwarven Resilience", "Stonecunning", "Tool Proficiency"]
+    }
+    ,
+    "halfling": {
+      "description": "A small and nimble race known for their luck and resourcefulness",
+      "age_range": {
+        "min": 20,
+        "max": 150
+      },
+      "height_range": {
+        "min": 36,
+        "max": 48,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 30,
+        "max": 50,
+        "unit": "pounds"
+      },
+      "male_names": ["Alton", "Ander", "Cade", "Corrin", "Eldon"],
+      "female_names": ["Andry", "Bree", "Callie", "Cora", "Euphemia"],
+      "surnames": ["Brushgather", "Goodbarrel", "Greenbottle", "Highhill", "Tealeaf"],
+      "common_languages": ["Common", "Halfling"],
+      "racial_traits": ["Lucky", "Brave", "Halfling Nimbleness"]
+    },
+    "gnome": {
+      "description": "A small and clever race known for their curiosity and inventiveness",
+      "age_range": {
+        "min": 40,
+        "max": 500
+      },
+      "height_range": {
+        "min": 36,
+        "max": 48,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 40,
+        "max": 45,
+        "unit": "pounds"
+      },
+      "male_names": ["Alston", "Alvyn", "Boddynock", "Brocc", "Dimble"],
+      "female_names": ["Bimpnottin", "Caramip", "Duvamil", "Ellywick", "Loopmottin"],
+      "surnames": ["Beren", "Daergel", "Folkor", "Garrick", "Nackle"],
+      "common_languages": ["Common", "Gnomish"],
+      "racial_traits": ["Darkvision", "Gnome Cunning", "Artificer's Lore", "Tinker"]
+    },
+    "dragonborn": {
+      "description": "A proud and honorable race with draconic ancestry",
+      "age_range": {
+        "min": 15,
+        "max": 80
+      },
+      "height_range": {
+        "min": 66,
+        "max": 84,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 175,
+        "max": 350,
+        "unit": "pounds"
+      },
+      "male_names": ["Arjhan", "Balasar", "Bharash", "Donaar", "Ghesh"],
+      "female_names": ["Akra", "Biri", "Daar", "Farideh", "Harann"],
+      "surnames": ["Clethtinthiallor", "Daardendrian", "Delmirev", "Kepeshkmolik", "Turnuroth"],
+      "common_languages": ["Common", "Draconic"],
+      "racial_traits": ["Draconic Ancestry", "Breath Weapon", "Damage Resistance"]
+    },
+    "half-elf": {
+      "description": "A race of mixed heritage, combining human versatility with elven grace",
+      "age_range": {
+        "min": 20,
+        "max": 180
+      },
+      "height_range": {
+        "min": 60,
+        "max": 74,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 100,
+        "max": 180,
+        "unit": "pounds"
+      },
+      "male_names": ["Aeron", "Carric", "Dayereth", "Erevan", "Laucian"],
+      "female_names": ["Althaea", "Anastrianna", "Drusilia", "Keyleth", "Thia"],
+      "surnames": ["Moonwhisper", "Starflower", "Evenwood", "Silverfrond", "Duskryn"],
+      "common_languages": ["Common", "Elvish"],
+      "racial_traits": ["Darkvision", "Fey Ancestry", "Skill Versatility"]
+    },
+    "half-orc": {
+      "description": "A race of strength and endurance, often misunderstood due to their orcish heritage",
+      "age_range": {
+        "min": 14,
+        "max": 75
+      },
+      "height_range": {
+        "min": 60,
+        "max": 78,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 150,
+        "max": 300,
+        "unit": "pounds"
+      },
+      "male_names": ["Dench", "Feng", "Gell", "Henk", "Holg"],
+      "female_names": ["Baggi", "Emen", "Engong", "Kansif", "Myev"],
+      "surnames": ["Gro-Mash", "Thul", "Dreg", "Karg", "Varg"],
+      "common_languages": ["Common", "Orc"],
+      "racial_traits": ["Darkvision", "Menacing", "Relentless Endurance", "Savage Attacks"]
+    },
+    "tiefling": {
+      "description": "A race with infernal heritage, known for their cunning and resilience",
+      "age_range": {
+        "min": 18,
+        "max": 120
+      },
+      "height_range": {
+        "min": 58,
+        "max": 74,
+        "unit": "inches"
+      },
+      "weight_range": {
+        "min": 110,
+        "max": 200,
+        "unit": "pounds"
+      },
+      "male_names": ["Akmenos", "Amnon", "Barakas", "Damakos", "Ekemon"],
+      "female_names": ["Akta", "Anakis", "Bryseis", "Criella", "Kallista"],
+      "surnames": ["Art", "Carrion", "Chant", "Despair", "Fear"],
+      "common_languages": ["Common", "Infernal"],
+      "racial_traits": ["Darkvision", "Hellish Resistance", "Infernal Legacy"]
+    }
+    },
+    
+    
+    
+    
+    "Occupations": {
+        "Common": {
+        "farmer": {
+            "name": "Farmer",
+            "grade_of_loot_table": "poor",
+            "type": "Agriculture",
+            "rarity": "Common"
+        },
+        "miner": {
+            "name": "Miner",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "fisherman": {
+            "name": "Fisherman",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "servant": {
+            "name": "Servant",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "shepherd": {
+            "name": "Shepherd",
+            "grade_of_loot_table": "poor",
+            "type": "Agriculture",
+            "rarity": "Common"
+        },
+        "tanner": {
+            "name": "Tanner",
+            "grade_of_loot_table": "poor",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "barmaid": {
+            "name": "Barmaid",
+            "grade_of_loot_table": "poor",
+            "type": "Hospitality",
+            "rarity": "Common"
+        },
+        "street_vendor": {
+            "name": "Street Vendor",
+            "grade_of_loot_table": "poor",
+            "type": "Trade",
+            "rarity": "Common"
+        },
+        "messenger": {
+            "name": "Messenger",
+            "grade_of_loot_table": "poor",
+            "type": "Services",
+            "rarity": "Common"
+        },
+        "laundry_worker": {
+            "name": "Laundry Worker",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "rat_catcher": {
+            "name": "Rat Catcher",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "lamp_lighter": {
+            "name": "Lamp Lighter",
+            "grade_of_loot_table": "poor",
+            "type": "Services",
+            "rarity": "Common"
+        },
+        "dockworker": {
+            "name": "Dockworker",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "scullery_maid": {
+            "name": "Scullery Maid",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "town_crier": {
+            "name": "Town Crier",
+            "grade_of_loot_table": "poor",
+            "type": "Services",
+            "rarity": "Common"
+        },
+        "charcoal_burner": {
+            "name": "Charcoal Burner",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "brickmaker": {
+            "name": "Brickmaker",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "well_digger": {
+            "name": "Well Digger",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "woodcutter": {
+            "name": "Woodcutter",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "field_hand": {
+            "name": "Field Hand",
+            "grade_of_loot_table": "poor",
+            "type": "Agriculture",
+            "rarity": "Common"
+        },
+        "innkeeper": {
+            "name": "Innkeeper",
+            "grade_of_loot_table": "average",
+            "type": "Hospitality",
+            "rarity": "Common"
+        },
+        "merchant": {
+            "name": "Merchant",
+            "grade_of_loot_table": "wealthy",
+            "type": "Trade",
+            "rarity": "Common"
+        },
+        "guard": {
+            "name": "City Guard",
+            "grade_of_loot_table": "average",
+            "type": "Security",
+            "rarity": "Common"
+        },
+        "priest": {
+            "name": "Priest",
+            "grade_of_loot_table": "average",
+            "type": "Religion",
+            "rarity": "Common"
+        },
+        "carpenter": {
+            "name": "Carpenter",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "baker": {
+            "name": "Baker",
+            "grade_of_loot_table": "average",
+            "type": "Food",
+            "rarity": "Common"
+        },
+        "tailor": {
+            "name": "Tailor",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "soldier": {
+            "name": "Soldier",
+            "grade_of_loot_table": "average",
+            "type": "Military",
+            "rarity": "Common"
+        },
+        "stablehand": {
+            "name": "Stablehand",
+            "grade_of_loot_table": "poor",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "butcher": {
+            "name": "Butcher",
+            "grade_of_loot_table": "poor",
+            "type": "Food",
+            "rarity": "Common"
+        },
+        "miller": {
+            "name": "Miller",
+            "grade_of_loot_table": "average",
+            "type": "Agriculture",
+            "rarity": "Common"
+        },
+        "weaver": {
+            "name": "Weaver",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "potter": {
+            "name": "Potter",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "mason": {
+            "name": "Mason",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "cooper": {
+            "name": "Cooper",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "chandler": {
+            "name": "Chandler",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "cobbler": {
+            "name": "Cobbler",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        },
+        "grocer": {
+            "name": "Grocer",
+            "grade_of_loot_table": "average",
+            "type": "Trade",
+            "rarity": "Common"
+        },
+        "stable_master": {
+            "name": "Stable Master",
+            "grade_of_loot_table": "average",
+            "type": "Labor",
+            "rarity": "Common"
+        },
+        "fishmonger": {
+            "name": "Fishmonger",
+            "grade_of_loot_table": "average",
+            "type": "Trade",
+            "rarity": "Common"
+        },
+        "furrier": {
+            "name": "Furrier",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Common"
+        }
+        },
+        "Uncommon": {
+        "blacksmith": {
+            "name": "Blacksmith",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "alchemist": {
+            "name": "Alchemist",
+            "grade_of_loot_table": "wealthy",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "bard": {
+            "name": "Bard",
+            "grade_of_loot_table": "average",
+            "type": "Entertainment",
+            "rarity": "Uncommon"
+        },
+        "herbalist": {
+            "name": "Herbalist",
+            "grade_of_loot_table": "average",
+            "type": "Medicine",
+            "rarity": "Uncommon"
+        },
+        "scholar": {
+            "name": "Scholar",
+            "grade_of_loot_table": "wealthy",
+            "type": "Education",
+            "rarity": "Uncommon"
+        },
+        "thief": {
+            "name": "Thief",
+            "grade_of_loot_table": "average",
+            "type": "Criminal",
+            "rarity": "Uncommon"
+        },
+        "apothecary": {
+            "name": "Apothecary",
+            "grade_of_loot_table": "wealthy",
+            "type": "Medicine",
+            "rarity": "Uncommon"
+        },
+        "jeweler": {
+            "name": "Jeweler",
+            "grade_of_loot_table": "wealthy",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "shipwright": {
+            "name": "Shipwright",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "scribe": {
+            "name": "Scribe",
+            "grade_of_loot_table": "average",
+            "type": "Education",
+            "rarity": "Uncommon"
+        },
+        "glassblower": {
+            "name": "Glassblower",
+            "grade_of_loot_table": "wealthy",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "bookbinder": {
+            "name": "Bookbinder",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "perfumer": {
+            "name": "Perfumer",
+            "grade_of_loot_table": "wealthy",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "toymaker": {
+            "name": "Toymaker",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "clockmaker": {
+            "name": "Clockmaker",
+            "grade_of_loot_table": "wealthy",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "tattoo_artist": {
+            "name": "Tattoo Artist",
+            "grade_of_loot_table": "average",
+            "type": "Art",
+            "rarity": "Uncommon"
+        },
+        "fortune_teller": {
+            "name": "Fortune Teller",
+            "grade_of_loot_table": "average",
+            "type": "Mysticism",
+            "rarity": "Uncommon"
+        },
+        "animal_trainer": {
+            "name": "Animal Trainer",
+            "grade_of_loot_table": "average",
+            "type": "Services",
+            "rarity": "Uncommon"
+        },
+        "locksmith": {
+            "name": "Locksmith",
+            "grade_of_loot_table": "average",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        },
+        "wigmaker": {
+            "name": "Wigmaker",
+            "grade_of_loot_table": "wealthy",
+            "type": "Crafting",
+            "rarity": "Uncommon"
+        }
+        },
+        "Rare": {
+        "noble": {
+            "name": "Noble",
+            "grade_of_loot_table": "rich",
+            "type": "Aristocracy",
+            "rarity": "Rare"
+        },
+        "bounty_hunter": {
+            "name": "Bounty Hunter",
+            "grade_of_loot_table": "average",
+            "type": "Security",
+            "rarity": "Rare"
+        },
+        "cartographer": {
+            "name": "Cartographer",
+            "grade_of_loot_table": "wealthy",
+            "type": "Education",
+            "rarity": "Rare"
+        },
+        "executioner": {
+            "name": "Executioner",
+            "grade_of_loot_table": "average",
+            "type": "Government",
+            "rarity": "Rare"
+        },
+        "royal_guard": {
+            "name": "Royal Guard",
+            "grade_of_loot_table": "wealthy",
+            "type": "Military",
+            "rarity": "Rare"
+        },
+        "court_mage": {
+            "name": "Court Mage",
+            "grade_of_loot_table": "rich",
+            "type": "Magic",
+            "rarity": "Rare"
+        },
+        "master_thief": {
+            "name": "Master Thief",
+            "grade_of_loot_table": "wealthy",
+            "type": "Criminal",
+            "rarity": "Rare"
+        },
+        "ship_captain": {
+            "name": "Ship Captain",
+            "grade_of_loot_table": "wealthy",
+            "type": "Trade",
+            "rarity": "Rare"
+        },
+        "assassin": {
+            "name": "Assassin",
+            "grade_of_loot_table": "wealthy",
+            "type": "Criminal",
+            "rarity": "Rare"
+        }
+        },
+        "Very Rare": {
+        "archmage": {
+            "name": "Archmage",
+            "grade_of_loot_table": "rich",
+            "type": "Magic",
+            "rarity": "Very Rare"
+        },
+        "dragon_slayer": {
+            "name": "Dragon Slayer",
+            "grade_of_loot_table": "rich",
+            "type": "Adventuring",
+            "rarity": "Very Rare"
+        },
+        "high_priest": {
+            "name": "High Priest",
+            "grade_of_loot_table": "rich",
+            "type": "Religion",
+            "rarity": "Very Rare"
+        },
+        "spymaster": {
+            "name": "Spymaster",
+            "grade_of_loot_table": "rich",
+            "type": "Government",
+            "rarity": "Very Rare"
+        },
+        "legendary_blacksmith": {
+            "name": "Legendary Blacksmith",
+            "grade_of_loot_table": "rich",
+            "type": "Crafting",
+            "rarity": "Very Rare"
+        }
+        }
+    },
+    
+    
+    "loot_tables": {
+    "poor": {
+      "min_gp": 0,
+      "max_gp": 10,
+      "common_items": ["Rusty dagger", "Tattered cloak", "Waterskin", "Torch", "Piece of chalk"],
+      "uncommon_items": ["Simple ring", "Small pouch", "Wooden holy symbol"],
+      "rare_items": ["Old map fragment", "Ancient coin", "Mysterious locket"]
+    },
+    
+    "average": {
+      "min_gp": 10,
+      "max_gp": 50,
+      "common_items": ["Leather armor", "Shortsword", "Backpack", "Bedroll", "Rope (50ft)"],
+      "uncommon_items": ["Healing potion", "Silver ring", "Fine cloak"],
+      "rare_items": ["Enchanted amulet", "Rare gemstone", "Scroll of fireball"]
+    },
+    "wealthy": {
+      "min_gp": 50,
+      "max_gp": 200,
+      "common_items": ["Chain shirt", "Rapier", "Spellbook", "Fine clothes", "Signet ring"],
+      "uncommon_items": ["Potion of greater healing", "Scroll of identify", "Gemstones"],
+      "rare_items": ["Ring of protection", "Elven chain", "Wand of the war mage"]
+    },
+    "rich": {
+      "min_gp": 200,
+      "max_gp": 1000,
+      "common_items": ["Plate armor", "Magic weapon", "Jewelry", "Art objects"],
+      "uncommon_items": ["Wand of magic detection", "Bag of holding", "Cloak of protection"],
+      "rare_items": ["Staff of power", "Manual of gainful exercise", "Vorpal sword"]
+    }
+    }
+}  
+    
