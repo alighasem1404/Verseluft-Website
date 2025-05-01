@@ -4,23 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Base styles first -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Component-specific styles -->
     <link rel="stylesheet" href="stylesLanding.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"> 
+    <link rel="stylesheet" href="stylesProducts.css">
+    <link rel="stylesheet" href="StylesContent.css">
+    <!-- Third-party styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 </head>
 <body>
     
     <header style="display: flex; justify-content: space-between; width: 80vw; margin: auto;" >
         <div style="display: flex; align-items: flex-start; gap: 0px; flex-direction: column;">
-        <h1 class="heroTitle" style="font-size: 4em; padding-top: 10px;"> Verseluft</h1>
-        <h1 class="heroTitle" style="text-align: right; padding-left: 190px;">Publishing</h1>
+            <h1 class="heroTitle" style="font-size: 4em; padding-top: 10px;"> Verseluft</h1>
+            <h1 class="heroTitle" style="text-align: right; padding-left: 190px;">Publishing</h1>
         </div>
         <p class="heroDescription" style="padding-top: 20px;" >Where the fantasy becomes the reality</p>
-        <img class="heroLogo" style="width: 100px; height: 100px; padding-top: 10px;" src="logo.png" alt="Logo" >
-
-        
-
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div class="profile-container">
+                <button class="login-button">Login</button>
+                <div class="profile-avatar" style="display: none;">
+                    <img src="" alt="Profile" class="profile-image">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <img class="heroLogo" style="width: 100px; height: 100px; padding-top: 10px;" src="logo.png" alt="Logo" >
+        </div>
     </header>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Welcome Back!</h2>
+                <p>Sign in to your account</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <button type="submit" class="auth-button">Sign In</button>
+                
+                <div class="divider-or">
+                    <span>OR</span>
+                </div>
+                
+                <button type="button" class="google-auth-button">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Create an account</h2>
+                <p>Join our community</p>
+            </div>
+            <form id="signupForm" class="auth-form">
+                <button type="button" class="google-auth-button">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </button>
+
+                <div class="divider-or">
+                    <span>OR</span>
+                </div>
+
+                <div class="profile-upload">
+                    <div class="profile-circle">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <input type="file" id="profileImage" accept="image/*" class="profile-input">
+                    <label for="profileImage">Upload your profile image</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupName">Name</label>
+                    <input type="text" id="signupName" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupNickname">Nickname (optional)</label>
+                    <input type="text" id="signupNickname" name="nickname">
+                </div>
+
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+
+                <button type="submit" class="auth-button">Sign Up</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <a href="#" id="showLogin">Log In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="profile-modal">
+        <div class="modal-content profile-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="profile-modal-header">
+                <div class="profile-modal-avatar">
+                    <img src="" alt="Profile" class="profile-modal-image">
+                    <i class="fas fa-user profile-modal-icon"></i>
+                </div>
+                <h3 class="profile-modal-name"></h3>
+                <p class="profile-modal-email"></p>
+            </div>
+            <div class="profile-modal-menu">
+                <a href="/profile.html" class="profile-menu-item">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Edit Profile</span>
+                </a>
+                <a href="#" class="profile-menu-item">
+                    <i class="fas fa-book"></i>
+                    <span>My Library</span>
+                </a>
+                <a href="#" class="profile-menu-item">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <button class="profile-menu-item logout-button">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- carousel--> 
     <div class="carousel">
@@ -443,13 +583,15 @@
             msg.innerHTML = "Thank You for Subscribing!"
             setTimeout(function(){
                 msg.innerHTML = ""
-
             },5000)
             form.reset()
         })
         .catch(error => console.error('Error!', error.message))
     })
-  </script>
-     <script src="app.js"></script>
+</script>
+
+<!-- Load scripts -->
+<script src="app.js" defer></script>
+<script src="auth.js" defer></script>
 </body>
 </html>
