@@ -2,30 +2,30 @@
   "allSlidesData": [
     {
       "imageName": "images/bannernew.png",
-      "percentageValue": "90",
+      "percentageValue": "3590",
       "title": "Crafting digital brilliance copywriting",
       "text": "Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien.",
       "buttonLink": "about.html",
       "authorIcon": "assets/images/main-slider/icon-2.png",
-      "authorName": "Sara Ven"
+      "authorName": "Vampire Rabbit"
     },
     {
       "imageName": "images/bannerplaceholder.jpg",
-      "percentageValue": "85",
+      "percentageValue": "1285",
       "title": "Another awesome slide title",
       "text": "This is the text for the second slide, providing more details about the service or product.",
       "buttonLink": "services.html",
-      "authorIcon": "assets/images/main-slider/icon-3.png",
-      "authorName": "John Doe"
+      "authorIcon": "assets/images/main-slider/icon-2.png",
+      "authorName": "Black Cube Games"
     },
     {
       "imageName": "images/annotated (4).jpg",
-      "percentageValue": "95",
+      "percentageValue": "495",
       "title": "Innovative Solutions for Your Business",
       "text": "Discover how our cutting-edge solutions can transform your operations and drive growth.",
       "buttonLink": "solutions.html",
-      "authorIcon": "assets/images/main-slider/icon-4.png",
-      "authorName": "Jane Smith"
+      "authorIcon": "assets/images/main-slider/icon-2.png",
+      "authorName": "Moonstone Sculpture"
     }
   ]
 }

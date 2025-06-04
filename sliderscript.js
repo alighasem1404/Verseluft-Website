@@ -24,11 +24,17 @@ function createSlide(slideData) {
 
                 <!-- Image Column - Placed FIRST to ensure it's above content on mobile and left on desktop -->
                 <div class="slider-one_image flex-1 md:w-1/2 lg:w-2/5">
+                 <div class="slider-one_author mt-4 md:mt-0 w-full flex justify-center md:justify-start">
+                    <!-- <i><img src="${slideData.authorIcon}" alt="${slideData.authorName} icon" onerror="this.onerror=null;this.src='https://placehold.co/50x50/000000/FFFFFF?text=Icon';" class="rounded-full shadow-md"/></i> -->
+                    <h5 class="slider-one_author-name">${slideData.authorName}</h5>
+                </div>
                     <div class="slider-one_percentage">
                         <i class="fa-solid fa-arrow-up fa-fw"></i>
                         <div class="slider-one_percent">${slideData.percentageValue}<sub>%</sub></div>
-                        <div class="slider-one_percentage-text">efficiency</div>
+                        <div class="slider-one_percentage-text">Funded</div>
+                        
                     </div>
+                    
                     <img src="${slideData.imageName}" alt="Slider image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/333333?text=Image+Not+Found';" class="rounded-xl shadow-lg"/>
                 </div>
 
@@ -49,10 +55,7 @@ function createSlide(slideData) {
                 </div>
 
                 <!-- Author Column - Placed THIRD, outside content div, as per original HTML -->
-                <div class="slider-one_author mt-4 md:mt-0 w-full flex justify-center md:justify-start">
-                    <i><img src="${slideData.authorIcon}" alt="${slideData.authorName} icon" onerror="this.onerror=null;this.src='https://placehold.co/50x50/000000/FFFFFF?text=Icon';" class="rounded-full shadow-md"/></i>
-                    <h5 class="slider-one_author-name">${slideData.authorName}</h5>
-                </div>
+               
             </div>
         </div>
     `;
