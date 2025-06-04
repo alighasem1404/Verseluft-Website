@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider Data Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .slide-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .add-slide {
+            background-color: #2196F3;
+        }
+        .add-slide:hover {
+            background-color: #0b7dda;
+        }
+        .remove-slide {
+            background-color: #f44336;
+        }
+        .remove-slide:hover {
+            background-color: #da190b;
+        }
+        .status-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slider Data Editor</h1>
+    <div id="status-message" class="status-message"></div>
+    <div id="slides-container"></div>
+    <button class="add-slide" onclick="addNewSlide()">Add New Slide</button>
+    <button onclick="saveData()">Save Changes</button>
+
+    <script>
+        let sliderData = null;
+
+        // Load the JSON data
+        async function loadData() {
+            try {
+                const response = await fetch('/slider-data.json');
+                sliderData = await response.json();
+                renderSlides();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                showStatus('Error loading data. Please check the console for details.', 'error');
+            }
+        }
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message ${type}`;
+            statusDiv.style.display = 'block';
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Render all slides
+        function renderSlides() {
+            const container = document.getElementById('slides-container');
+            container.innerHTML = '';
+            
+            sliderData.slides.forEach((slide, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'slide-container';
+                slideDiv.innerHTML = `
+                    <h2>Slide ${index + 1}</h2>
+                    <button class="remove-slide" onclick="removeSlide(${index})">Remove Slide</button>
+                    
+                    <div class="form-group">
+                        <label>Title Icon:</label>
+                        <input type="text" value="${slide.content.title.icon}" onchange="updateSlide(${index}, 'content.title.icon', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Title Text:</label>
+                        <input type="text" value="${slide.content.title.text}" onchange="updateSlide(${index}, 'content.title.text', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Heading Text:</label>
+                        <input type="text" value="${slide.content.heading.text}" onchange="updateSlide(${index}, 'content.heading.text', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Heading Highlight:</label>
+                        <input type="text" value="${slide.content.heading.highlight}" onchange="updateSlide(${index}, 'content.heading.highlight', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Heading Suffix:</label>
+                        <input type="text" value="${slide.content.heading.suffix}" onchange="updateSlide(${index}, 'content.heading.suffix', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description:</label>
+                        <textarea onchange="updateSlide(${index}, 'content.description', this.value)">${slide.content.description}</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Button Text:</label>
+                        <input type="text" value="${slide.content.button.text}" onchange="updateSlide(${index}, 'content.button.text', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Button Link:</label>
+                        <input type="text" value="${slide.content.button.link}" onchange="updateSlide(${index}, 'content.button.link', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Video Link:</label>
+                        <input type="text" value="${slide.content.video.link}" onchange="updateSlide(${index}, 'content.video.link', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Main Image:</label>
+                        <input type="text" value="${slide.image.main}" onchange="updateSlide(${index}, 'image.main', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Author Name:</label>
+                        <input type="text" value="${slide.image.author.name}" onchange="updateSlide(${index}, 'image.author.name', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Author Icon:</label>
+                        <input type="text" value="${slide.image.author.icon}" onchange="updateSlide(${index}, 'image.author.icon', this.value)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Stats Percentage:</label>
+                        <input type="number" value="${slide.image.stats.percentage}" onchange="updateSlide(${index}, 'image.stats.percentage', parseInt(this.value))">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Stats Text:</label>
+                        <input type="text" value="${slide.image.stats.text}" onchange="updateSlide(${index}, 'image.stats.text', this.value)">
+                    </div>
+                `;
+                container.appendChild(slideDiv);
+            });
+        }
+
+        // Update a specific field in a slide
+        function updateSlide(index, path, value) {
+            const pathArray = path.split('.');
+            let current = sliderData.slides[index];
+            
+            for (let i = 0; i < pathArray.length - 1; i++) {
+                current = current[pathArray[i]];
+            }
+            
+            current[pathArray[pathArray.length - 1]] = value;
+        }
+
+        // Add a new slide
+        function addNewSlide() {
+            const newSlide = {
+                icons: {
+                    main: "assets/images/main-slider/icon-1.png",
+                    secondary: "assets/images/main-slider/icon-1.png"
+                },
+                patterns: {
+                    pattern1: "assets/images/main-slider/pattern-1.png",
+                    pattern2: "assets/images/main-slider/pattern-2.png",
+                    pattern3: "assets/images/main-slider/pattern-3.png",
+                    pattern4: "assets/images/main-slider/pattern-4.png"
+                },
+                content: {
+                    title: {
+                        icon: "assets/images/main-slider/hand.png",
+                        text: "New Slide Title"
+                    },
+                    heading: {
+                        text: "New Heading",
+                        highlight: "Highlight",
+                        suffix: "Suffix"
+                    },
+                    description: "New description text",
+                    button: {
+                        text: "Get started free",
+                        link: "about.html"
+                    },
+                    video: {
+                        link: "https://www.youtube.com/watch?v=example"
+                    }
+                },
+                image: {
+                    main: "assets/images/main-slider/image-1.png",
+                    author: {
+                        name: "Author Name",
+                        icon: "assets/images/main-slider/icon-2.png"
+                    },
+                    stats: {
+                        percentage: 90,
+                        text: "efficiency"
+                    }
+                }
+            };
+            
+            sliderData.slides.push(newSlide);
+            renderSlides();
+        }
+
+        // Remove a slide
+        function removeSlide(index) {
+            if (confirm('Are you sure you want to remove this slide?')) {
+                sliderData.slides.splice(index, 1);
+                renderSlides();
+            }
+        }
+
+        // Save the data
+        async function saveData() {
+            try {
+                const response = await fetch('save-slider.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(sliderData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showStatus('Data saved successfully!', 'success');
+                } else {
+                    throw new Error(result.error || 'Failed to save data');
+                }
+            } catch (error) {
+                console.error('Error saving data:', error);
+                showStatus('Error saving data: ' + error.message, 'error');
+            }
+        }
+
+        // Load data when the page loads
+        window.onload = loadData;
+    </script>
+</body>
+</html> 
