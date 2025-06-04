@@ -468,8 +468,12 @@
 }
 
 .slider-one_percent sub{
-	color: #2b2b2b;
+	
+	-webkit-text-fill-color: white !important;
+
 }
+
+
 
 .slider-one_percentage-text{
 	position: relative;
