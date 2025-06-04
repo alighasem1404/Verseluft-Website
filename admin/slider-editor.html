@@ -87,7 +87,7 @@
         // Load the JSON data
         async function loadData() {
             try {
-                const response = await fetch('/slider-data.json');
+                const response = await fetch('/slider_data.json');
                 sliderData = await response.json();
                 renderSlides();
             } catch (error) {
@@ -112,7 +112,7 @@
             const container = document.getElementById('slides-container');
             container.innerHTML = '';
             
-            sliderData.slides.forEach((slide, index) => {
+            sliderData.allSlidesData.forEach((slide, index) => {
                 const slideDiv = document.createElement('div');
                 slideDiv.className = 'slide-container';
                 slideDiv.innerHTML = `
@@ -120,73 +120,38 @@
                     <button class="remove-slide" onclick="removeSlide(${index})">Remove Slide</button>
                     
                     <div class="form-group">
-                        <label>Title Icon:</label>
-                        <input type="text" value="${slide.content.title.icon}" onchange="updateSlide(${index}, 'content.title.icon', this.value)">
+                        <label>Image Name:</label>
+                        <input type="text" value="${slide.imageName}" onchange="updateSlide(${index}, 'imageName', this.value)">
                     </div>
                     
                     <div class="form-group">
-                        <label>Title Text:</label>
-                        <input type="text" value="${slide.content.title.text}" onchange="updateSlide(${index}, 'content.title.text', this.value)">
+                        <label>Percentage Value:</label>
+                        <input type="text" value="${slide.percentageValue}" onchange="updateSlide(${index}, 'percentageValue', this.value)">
                     </div>
                     
                     <div class="form-group">
-                        <label>Heading Text:</label>
-                        <input type="text" value="${slide.content.heading.text}" onchange="updateSlide(${index}, 'content.heading.text', this.value)">
+                        <label>Title:</label>
+                        <input type="text" value="${slide.title}" onchange="updateSlide(${index}, 'title', this.value)">
                     </div>
                     
                     <div class="form-group">
-                        <label>Heading Highlight:</label>
-                        <input type="text" value="${slide.content.heading.highlight}" onchange="updateSlide(${index}, 'content.heading.highlight', this.value)">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Heading Suffix:</label>
-                        <input type="text" value="${slide.content.heading.suffix}" onchange="updateSlide(${index}, 'content.heading.suffix', this.value)">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Description:</label>
-                        <textarea onchange="updateSlide(${index}, 'content.description', this.value)">${slide.content.description}</textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Button Text:</label>
-                        <input type="text" value="${slide.content.button.text}" onchange="updateSlide(${index}, 'content.button.text', this.value)">
+                        <label>Text:</label>
+                        <textarea onchange="updateSlide(${index}, 'text', this.value)">${slide.text}</textarea>
                     </div>
                     
                     <div class="form-group">
                         <label>Button Link:</label>
-                        <input type="text" value="${slide.content.button.link}" onchange="updateSlide(${index}, 'content.button.link', this.value)">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Video Link:</label>
-                        <input type="text" value="${slide.content.video.link}" onchange="updateSlide(${index}, 'content.video.link', this.value)">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Main Image:</label>
-                        <input type="text" value="${slide.image.main}" onchange="updateSlide(${index}, 'image.main', this.value)">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Author Name:</label>
-                        <input type="text" value="${slide.image.author.name}" onchange="updateSlide(${index}, 'image.author.name', this.value)">
+                        <input type="text" value="${slide.buttonLink}" onchange="updateSlide(${index}, 'buttonLink', this.value)">
                     </div>
                     
                     <div class="form-group">
                         <label>Author Icon:</label>
-                        <input type="text" value="${slide.image.author.icon}" onchange="updateSlide(${index}, 'image.author.icon', this.value)">
+                        <input type="text" value="${slide.authorIcon}" onchange="updateSlide(${index}, 'authorIcon', this.value)">
                     </div>
                     
                     <div class="form-group">
-                        <label>Stats Percentage:</label>
-                        <input type="number" value="${slide.image.stats.percentage}" onchange="updateSlide(${index}, 'image.stats.percentage', parseInt(this.value))">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Stats Text:</label>
-                        <input type="text" value="${slide.image.stats.text}" onchange="updateSlide(${index}, 'image.stats.text', this.value)">
+                        <label>Author Name:</label>
+                        <input type="text" value="${slide.authorName}" onchange="updateSlide(${index}, 'authorName', this.value)">
                     </div>
                 `;
                 container.appendChild(slideDiv);
@@ -194,70 +159,30 @@
         }
 
         // Update a specific field in a slide
-        function updateSlide(index, path, value) {
-            const pathArray = path.split('.');
-            let current = sliderData.slides[index];
-            
-            for (let i = 0; i < pathArray.length - 1; i++) {
-                current = current[pathArray[i]];
-            }
-            
-            current[pathArray[pathArray.length - 1]] = value;
+        function updateSlide(index, field, value) {
+            sliderData.allSlidesData[index][field] = value;
         }
 
         // Add a new slide
         function addNewSlide() {
             const newSlide = {
-                icons: {
-                    main: "assets/images/main-slider/icon-1.png",
-                    secondary: "assets/images/main-slider/icon-1.png"
-                },
-                patterns: {
-                    pattern1: "assets/images/main-slider/pattern-1.png",
-                    pattern2: "assets/images/main-slider/pattern-2.png",
-                    pattern3: "assets/images/main-slider/pattern-3.png",
-                    pattern4: "assets/images/main-slider/pattern-4.png"
-                },
-                content: {
-                    title: {
-                        icon: "assets/images/main-slider/hand.png",
-                        text: "New Slide Title"
-                    },
-                    heading: {
-                        text: "New Heading",
-                        highlight: "Highlight",
-                        suffix: "Suffix"
-                    },
-                    description: "New description text",
-                    button: {
-                        text: "Get started free",
-                        link: "about.html"
-                    },
-                    video: {
-                        link: "https://www.youtube.com/watch?v=example"
-                    }
-                },
-                image: {
-                    main: "assets/images/main-slider/image-1.png",
-                    author: {
-                        name: "Author Name",
-                        icon: "assets/images/main-slider/icon-2.png"
-                    },
-                    stats: {
-                        percentage: 90,
-                        text: "efficiency"
-                    }
-                }
+                imageName: "images/bannernew.png",
+                percentageValue: "1000",
+                title: "New Slide Title",
+                text: "Enter slide description here",
+                buttonLink: "about.html",
+                authorIcon: "assets/images/main-slider/icon-2.png",
+                authorName: "Author Name"
             };
             
-            sliderData.slides.push(newSlide);
+            sliderData.allSlidesData.push(newSlide);
             renderSlides();
         }
 
         // Remove a slide
         function removeSlide(index) {
             if (confirm('Are you sure you want to remove this slide?')) {
-                sliderData.slides.splice(index, 1);
+                sliderData.allSlidesData.splice(index, 1);
                 renderSlides();
             }
         }

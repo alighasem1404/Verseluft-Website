@@ -29,7 +29,7 @@ if (json_last_error() !== JSON_ERROR_NONE) {
 }
 
 // Define the path to the JSON file
-$jsonFile = dirname(__DIR__) . '/slider-data.json';
+$jsonFile = dirname(__DIR__) . '/slider_data.json';
 
 // Check if the file is writable
 if (!is_writable(dirname($jsonFile))) {
