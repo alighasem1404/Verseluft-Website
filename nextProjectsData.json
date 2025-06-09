@@ -1,0 +1,23 @@
+{
+    "block1": {
+        "stepText": "Black Cube Games Inc.",
+        "title": "Advanced Algorithm Processing",
+        "description": "Our latest project focuses on optimizing algorithmic efficiency for high-throughput data streams. This initial phase defines the core processing logic.",
+        "imageSrc": "https://placehold.co/600x400/a78bfa/5b21b6?text=Phase+1",
+        "imageAlt": "Phase 1 Image"
+    },
+    "block2": {
+        "stepText": "Step 02: Data Acquisition",
+        "title": "Secure Input & Data Gathering",
+        "description": "This stage involves meticulous collection of raw data from various secure sources, ensuring data integrity and compliance.",
+        "imageSrc": "https://placehold.co/600x400/fcd34d/b45309?text=Phase+2",
+        "imageAlt": "Phase 2 Image"
+    },
+    "block3": {
+        "stepText": "Step 03: Output & Review",
+        "title": "Refined Content Generation",
+        "description": "The final phase involves generating high-quality outputs based on processed data, followed by rigorous quality assurance and refinement.",
+        "imageSrc": "https://placehold.co/600x400/fdba74/c2410c?text=Phase+3",
+        "imageAlt": "Phase 3 Image"
+    }
+}
