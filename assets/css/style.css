@@ -91,6 +91,7 @@
 	position:relative;
 }
 
+/*
 .slider-one::before{
 	position:absolute;
 	content: '';
@@ -102,7 +103,7 @@
 	background-color: var(--color-two);
 	clip-path: polygon(15% 60%, 100% 0, 100% 100%, 0 100%, 0 0);
 }
-
+*/
 .slider-one .swiper-slide{
 	position:relative;
 	overflow:hidden;

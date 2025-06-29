@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Steps Editor</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font family globally */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom styling for the textarea to ensure monospaced font for JSON */
+        #json-input {
+            resize: vertical; /* Allow vertical resizing */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 min-h-screen flex flex-col items-center justify-start">
+
+    <!-- JSON Editor Panel -->
+    <div id="json-editor-panel" class="bg-white rounded-lg shadow-md p-6 mb-8 w-full max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Edit Project Data (JSON)</h2>
+        <textarea id="json-input" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 font-mono text-sm" rows="15" spellcheck="false" placeholder='Paste your JSON data here. Example: {"block1":{...}}'></textarea>
+        <div class="flex justify-end mt-4 space-x-3">
+            <button id="update-json-btn" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Apply & Save Changes
+            </button>
+        </div>
+        <div id="json-message" class="mt-4 text-sm text-center"></div>
+    </div>
+
+    <!-- Main content container where project steps will be rendered -->
+    <div id="next_projects" class="container mx-auto px-4 py-8"></div>
+
+    <script>
+        /**
+         * Creates a single 'step-block_one' HTML element using a template literal.
+         * This function dynamically generates the HTML structure for each step block,
+         * using the class names exactly as provided in the user's original snippet.
+         * @param {object} slideData - The data for the step block.
+         * @param {string} slideData.stepText - The text for the step (e.g., "Black Cube Games", "step 02").
+         * @param {string} slideData.title - The title of the step block.
+         * @param {string} slideData.description - The description text.
+         * @param {string} slideData.imageSrc - The source URL for the image.
+         * @param {string} slideData.imageAlt - The alt text for the image.
+         * @returns {HTMLElement} The created step block DOM element.
+         */
+        function createStepBlock(slideData) {
+            const stepBlock = document.createElement('div');
+            // Apply the exact class from the user's original snippet for the outer step block
+            stepBlock.classList.add('step-block_one');
+
+            // Construct the inner HTML using a template literal, adhering to original class names.
+            // Specific IDs for the first block will be assigned in displayProjectSteps after creation.
+            stepBlock.innerHTML = `
+                <div class="step-block_one-inner">
+                    <div class="step-block_one-steps">${slideData.stepText}</div>
+                    <h5 class="step-block_one-title">${slideData.title}</h5>
+                    <div class="step-block_one-text">${slideData.description}</div>
+                    <div class="step-block_one-content">
+                        <div class="image">
+                            <!-- Image tag with responsive Tailwind classes and error fallback -->
+                            <img src="${slideData.imageSrc}" alt="${slideData.imageAlt}" 
+                                 class="w-full h-auto rounded-lg object-cover" 
+                                 onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/333333?text=Image+Error';">
+                        </div>
+                    </div>
+                </div>
+            `;
+            return stepBlock;
+        }
+
+        /**
+         * Displays the project steps in the content container based on the provided project data.
+         * @param {object} projectData - The parsed JSON object containing block1, block2, and block3 data.
+         */
+        function displayProjectSteps(projectData) {
+            const contentContainer = document.getElementById('next_projects');
+            if (!contentContainer) {
+                console.error("Content container with ID 'next_projects' not found.");
+                return;
+            }
+
+            // Clear existing content in the project steps display area
+            contentContainer.innerHTML = '';
+
+            // Create the main row container with responsive Tailwind flexbox classes.
+            // These classes are for overall layout and responsiveness, not part of the individual step block's internal structure.
+            const rowClearfix = document.createElement('div');
+            rowClearfix.classList.add('row', 'clearfix', 'flex', 'flex-wrap', '-mx-4', 'justify-center');
+
+            // Get data for the three step blocks from the projectData object
+            const block1Data = projectData.block1;
+            const block2Data = projectData.block2;
+            const block3Data = projectData.block3;
+
+            // Create the first column for the first step block
+            const column1 = document.createElement('div');
+            // Apply the original column classes from the user's snippet, along with Tailwind for responsiveness.
+            column1.classList.add('column', 'col-lg-6', 'col-md-12', 'col-sm-12', 'px-4', 'mb-8', 'w-full', 'lg:w-1/2');
+            const stepBlock1 = createStepBlock(block1Data); // Create the step block using the generic function
+            column1.appendChild(stepBlock1);
+
+            // Manually assign the specific IDs to elements within the first block,
+            // as these IDs are unique to this block and not passed via JSON.
+            const block1Steps = stepBlock1.querySelector('.step-block_one-steps');
+            if (block1Steps) block1Steps.id = 'creator_name';
+
+            const block1Title = stepBlock1.querySelector('.step-block_one-title');
+            if (block1Title) block1Title.id = 'next_project_title';
+            
+            const block1Description = stepBlock1.querySelector('.step-block_one-text');
+            if (block1Description) block1Description.id = 'next_project_description';
+
+            // Create the second column for the remaining two step blocks
+            const column2 = document.createElement('div');
+            // Apply the original column classes from the user's snippet, along with Tailwind for responsiveness.
+            column2.classList.add('column', 'col-lg-6', 'col-md-12', 'col-sm-12', 'px-4', 'w-full', 'lg:w-1/2');
+            
+            const stepBlock2 = createStepBlock(block2Data);
+            const stepBlock3 = createStepBlock(block3Data);
+            
+            // Remove the 'mb-8' (margin-bottom) class from the last step block to avoid extra space
+            // if it's the final element in its column. This class is added by createStepBlock by default.
+            stepBlock3.classList.remove('mb-8'); 
+
+            column2.appendChild(stepBlock2);
+            column2.appendChild(stepBlock3);
+
+            // Append both columns to the main row
+            rowClearfix.appendChild(column1);
+            rowClearfix.appendChild(column2);
+
+            // Append the newly created structure to the content container
+            contentContainer.appendChild(rowClearfix);
+        }
+
+        /**
+         * Fetches JSON data from 'nextProjectsData.json', populates the editor,
+         * and displays the project steps.
+         */
+        async function loadAndEditJson() {
+            const jsonInput = document.getElementById('json-input');
+            const jsonMessage = document.getElementById('json-message');
+
+            jsonMessage.textContent = 'Loading data...';
+            jsonMessage.classList.remove('text-red-600', 'text-green-600');
+            jsonMessage.classList.add('text-gray-600');
+
+            try {
+                const response = await fetch('../nextProjectsData.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const projectData = await response.json();
+
+                // Validate the fetched data structure
+                if (typeof projectData !== 'object' || projectData === null || 
+                    !projectData.block1 || !projectData.block2 || !projectData.block3) {
+                    throw new Error("Invalid or insufficient data in nextProjectsData.json. Expected an object with 'block1', 'block2', and 'block3' properties.");
+                }
+
+                // Populate the textarea with stringified JSON for editing
+                jsonInput.value = JSON.stringify(projectData, null, 2); // null, 2 for pretty printing
+
+                displayProjectSteps(projectData); // Display initial steps
+                jsonMessage.textContent = 'Data loaded successfully.';
+                jsonMessage.classList.remove('text-gray-600');
+                jsonMessage.classList.add('text-green-600');
+
+            } catch (error) {
+                console.error('Error:', error);
+                jsonMessage.textContent = `Failed to load or parse JSON: ${error.message}`;
+                // Provide a default empty structure for editing if loading fails
+                jsonInput.value = JSON.stringify({
+                    "block1": {
+                        "stepText": "Your Title 1",
+                        "title": "Default Project 1",
+                        "description": "Default description for project 1.",
+                        "imageSrc": "https://placehold.co/600x400/CCCCCC/333333?text=Project+1",
+                        "imageAlt": "Project 1 Image"
+                    },
+                    "block2": {
+                        "stepText": "Your Title 2",
+                        "title": "Default Project 2",
+                        "description": "Default description for project 2.",
+                        "imageSrc": "https://placehold.co/600x400/CCCCCC/333333?text=Project+2",
+                        "imageAlt": "Project 2 Image"
+                    },
+                    "block3": {
+                        "stepText": "Your Title 3",
+                        "title": "Default Project 3",
+                        "description": "Default description for project 3.",
+                        "imageSrc": "https://placehold.co/600x400/CCCCCC/333333?text=Project+3",
+                        "imageAlt": "Project 3 Image"
+                    }
+                }, null, 2);
+
+                jsonMessage.classList.remove('text-gray-600');
+                jsonMessage.classList.add('text-red-600');
+                // Clear the project steps display if loading fails
+                const contentContainer = document.getElementById('next_projects');
+                if (contentContainer) contentContainer.innerHTML = '';
+            }
+        }
+
+        /**
+         * Handles applying changes from the JSON editor.
+         * Parses the textarea content, re-renders the project steps locally,
+         * and attempts to save the data to the server via PHP.
+         */
+        async function applyJsonChanges() {
+            const jsonInput = document.getElementById('json-input');
+            const jsonMessage = document.getElementById('json-message');
+            const jsonString = jsonInput.value;
+
+            jsonMessage.textContent = 'Applying & Saving changes...';
+            jsonMessage.classList.remove('text-red-600', 'text-green-600');
+            jsonMessage.classList.add('text-gray-600');
+
+            let parsedData;
+            try {
+                parsedData = JSON.parse(jsonString);
+
+                // Re-validate the parsed data structure
+                if (typeof parsedData !== 'object' || parsedData === null || 
+                    !parsedData.block1 || !parsedData.block2 || !parsedData.block3) {
+                    throw new Error("Invalid JSON structure. Expected an object with 'block1', 'block2', and 'block3' properties.");
+                }
+
+                // First, update the local display immediately
+                displayProjectSteps(parsedData); 
+                
+                // Then, attempt to save to the server
+                const saveResponse = await fetch('saveNextProject.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: jsonString // Send the raw JSON string
+                });
+
+                if (!saveResponse.ok) {
+                    throw new Error(`Server save failed with status: ${saveResponse.status}`);
+                }
+
+                const result = await saveResponse.json();
+
+                if (result.success) {
+                    jsonMessage.textContent = `Content updated and saved successfully! Server: ${result.message}`;
+                    jsonMessage.classList.remove('text-gray-600', 'text-red-600');
+                    jsonMessage.classList.add('text-green-600');
+                } else {
+                    jsonMessage.textContent = `Content updated locally, but server save failed: ${result.message}`;
+                    jsonMessage.classList.remove('text-gray-600', 'text-green-600');
+                    jsonMessage.classList.add('text-red-600');
+                }
+
+            } catch (error) {
+                console.error('Error parsing, applying, or saving JSON:', error);
+                jsonMessage.textContent = `Error: ${error.message}. Please ensure your JSON is valid and server is configured correctly.`;
+                jsonMessage.classList.remove('text-gray-600', 'text-green-600');
+                jsonMessage.classList.add('text-red-600');
+            }
+        }
+
+        // Event listener for the "Apply & Save Changes" button
+        document.addEventListener('DOMContentLoaded', () => {
+            const updateButton = document.getElementById('update-json-btn');
+            if (updateButton) {
+                updateButton.addEventListener('click', applyJsonChanges);
+            }
+
+            // Initial load of JSON and display of project steps
+            loadAndEditJson();
+        });
+    </script>
+</body>
+</html>
