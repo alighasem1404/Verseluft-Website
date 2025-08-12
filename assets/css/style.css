@@ -1265,7 +1265,7 @@
 	font-size: 20px;
 	padding-top: 7px;
 	align-items: center;
-	padding-left: 80px;
+	padding-left: 0px;
 	display: inline-block;
 	color: var(--white-color);
 }
