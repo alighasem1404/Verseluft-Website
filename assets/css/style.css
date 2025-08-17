@@ -1206,7 +1206,14 @@
 	position: relative;
 	max-width: 1650px;
 }
-
+.testimonial-image {
+    float: right;
+    margin-left: 20px; /* Adjust as needed for spacing */
+    width: 128px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+	z-index: 20;
+	position: relative;
+}
 .testimonial-one .inner-container{
 	position: relative;
 	border-radius: 10px;
