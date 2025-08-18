@@ -17,15 +17,13 @@ function createSlide(slideData) {
     slideElement.classList.add('swiper-slide');
 
     slideElement.innerHTML = `
-        <div class="slider-one_pattern" style="background-image:url(${pattern1})"></div>
+        <div class="slider-one_pattern" style="background-image:url(${pattern1}) style="padding-bottom: 20px;"></div>
         <div class="slider-one_pattern-two" style="background-image:url(${pattern2})"></div>
         <div class="slider-one_pattern-four" style="background-image:url(${pattern4})"></div>
         <div class="auto-container">
             <div class="row clearfix flex flex-col md:flex-row items-center justify-between">
                 <div class="slider-one_image flex-1 md:w-1/2 lg:w-2/5">
-                   <div class="slider-one_author mt-4 md:mt-0 w-full flex justify-center md:justify-start">
-                        <h5 class="slider-one_author-name">${slideData.authorName}</h5>
-                    </div>
+                   
                     <div class="slider-one_percentage">
                         <i class="fa-solid fa-arrow-up fa-fw"></i>
                         <div class="slider-one_percent">${slideData.percentageValue}<sub>%</sub></div>
@@ -38,12 +36,15 @@ function createSlide(slideData) {
                     <div class="slider-one_content-inner">
                         <div class="slider-one_text">${slideData.text}</div>
                         <div class="slider-one_button d-flex align-items-center flex-wrap justify-center md:justify-start">
-                            <a href="${slideData.buttonLink}" class="template-btn btn-style-one rounded-lg">
+                        <h5 class="slider-one_author-name" style="margin-top:-0px">${slideData.authorName}</h5>
+                            
+                        <a href="${slideData.buttonLink}" class="template-btn btn-style-one rounded-lg">
                                 <span class="btn-wrap">
                                     <span class="text-one" style="width: 100px;">Learn More</span>
                                     <span class="text-two" style="width: 100px;">On Kickstart</span>
                                 </span>
                             </a>
+
                         </div>
                     </div>
                 </div>

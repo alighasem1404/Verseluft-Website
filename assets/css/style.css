@@ -151,6 +151,7 @@
 .slider-one_author{
 	background: #ebc5e2;
 	background: linear-gradient(90deg, rgba(235, 197, 226, 0.6) 0%, rgba(70, 1, 67, 0.6) 100%);
+	
 	border-radius: 10%;
 	position: absolute;
 	right: 0px;
@@ -173,7 +174,7 @@
 	margin-top: 8px;
 	font-size: 20px;
 	font-weight: 600;
-	color: black;
+	color: #e4d5e4;
 }
 
 .slider-one_author-text{
