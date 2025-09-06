@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage Exporter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2pdf library combines html2canvas and jspdf for easy PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- html-to-image library for converting HTML to various image formats -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.13/html-to-image.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #374151;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 90vh; /* Adjust height to cover a substantial part of the page */
+            border: none;
+            border-radius: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            position: fixed; /* Keeps the buttons in a fixed position */
+            bottom: 2rem;    /* 2rem from the bottom */
+            right: 2rem;     /* 2rem from the right */
+            z-index: 10;     /* Ensures the buttons are above other content */
+        }
+
+        .export-button {
+            padding: 0.75rem 1.5rem;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            white-space: nowrap;
+        }
+        .export-button:hover {
+            background-color: #4338ca;
+        }
+
+        .secondary-button {
+            background-color: #10b981;
+        }
+        .secondary-button:hover {
+            background-color: #059669;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body id="content-to-export">
+
+    <div class="container">
+        <iframe src="https://null.perchance.org/fantasynpcgenerator"></iframe>
+    </div>
+
+    <div class="button-group">
+        <button id="main-btn" class="export-button">Save as</button>
+        <div id="export-options" class="hidden button-group">
+            <button id="pdf-btn" class="export-button secondary-button">PDF</button>
+            <button id="jpg-btn" class="export-button secondary-button">JPG</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainBtn = document.getElementById('main-btn');
+            const exportOptions = document.getElementById('export-options');
+            const pdfBtn = document.getElementById('pdf-btn');
+            const jpgBtn = document.getElementById('jpg-btn');
+
+            mainBtn.addEventListener('click', () => {
+                mainBtn.classList.add('hidden');
+                exportOptions.classList.remove('hidden');
+            });
+
+            pdfBtn.addEventListener('click', () => {
+                // By default, this exports the entire body.
+                // To export only the iframe, you would change the target element here.
+                // For example: const element = document.querySelector('iframe');
+                const element = document.getElementById('content-to-export');
+                html2pdf()
+                    .from(element)
+                    .save('exported-page.pdf');
+            });
+
+            jpgBtn.addEventListener('click', () => {
+                // By default, this exports the entire body.
+                // To export only the iframe, you would change the target element here.
+                // For example: const node = document.querySelector('iframe');
+                const node = document.getElementById('content-to-export');
+                htmlToImage.toJpeg(node, { quality: 0.95 })
+                    .then(function (dataUrl) {
+                        const link = document.createElement('a');
+                        link.download = 'exported-page.jpeg';
+                        link.href = dataUrl;
+                        link.click();
+                    })
+                    .catch(function (error) {
+                        console.error('oops, something went wrong!', error);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
