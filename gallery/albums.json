@@ -1,0 +1,50 @@
+
+
+
+{
+    "items": [
+
+        {
+            "id": 1,
+            "category": "Black Cube Games",
+            "title": "Complete Town 7",
+            "desc": "A short description of the project for the gallery card.",
+            "thumb":"https://od.lk/s/NzVfNTgxODc0MTlf/0_2%20%2813%29.jpeg",
+            "images": [
+                    { "url": "image/CT7/NPC/Artemis Stormwind.jpg", "tag": "NPC" }
+                    
+                
+                ]
+        },
+
+        {
+            "id": 2,
+            "category": "Moonstone Sculpture",
+            "title": "Another Project",
+            "desc": "Description text goes here.",
+            "thumb":"https://od.lk/s/NzVfNTgxODczNzVf/0_1%20%2811%29.jpeg",
+            "images": [
+                "https://od.lk/s/NzVfNTgxODczNzVf/0_1%20%2811%29.jpeg"
+            ]
+        },
+        {
+            "id": 3,
+            "category": "Vampire Rabbit",
+            "title": "Another Project2",
+            "desc": "Description text goes here.",
+            "thumb":"https://od.lk/s/NzVfNTgxODczNjhf/0_0%20%2832%29.jpeg",
+            "images": [
+                "https://od.lk/s/NzVfNTgxODczNjhf/0_0%20%2832%29.jpeg"
+            ]
+        },
+        { 
+                "id": 4, "category": "Vampire Rabbit", "title": "Aether Loft", "desc": "Smart home integrated air systems for modern living spaces.", 
+                "thumb": "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800",
+                "images": [
+                    "https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200",
+                    "https://images.unsplash.com/photo-1600585154340-be6199f7e009?q=80&w=1200"
+                ]
+        }
+]
+}
+
