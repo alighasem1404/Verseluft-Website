@@ -247,16 +247,39 @@
             });
         }
 
-        function processImage(imgData, index) {
-            let url = typeof imgData === 'string' ? imgData : imgData.url;
+        function processImage(imgData, index, project = {}) {
+            const rawUrl = typeof imgData === 'string' ? imgData : imgData.url;
             let tag = imgData.tag || 'NONE';
             let name = imgData.name;
+            const projectFolder = (project.projectfolder || '').trim();
+
+            let url = rawUrl;
+            if (projectFolder && typeof rawUrl === 'string') {
+                const normalizedRaw = rawUrl.replace(/\\/g, '/').replace(/^\/+/, '');
+                if (!/^https?:\/\//i.test(normalizedRaw) && !normalizedRaw.startsWith('image/')) {
+                    if (normalizedRaw.includes('/')) {
+                        url = `image/${projectFolder}/${normalizedRaw}`;
+                    } else if (tag && tag !== 'NONE') {
+                        url = `image/${projectFolder}/${tag}/${normalizedRaw}`;
+                    } else {
+                        url = `image/${projectFolder}/${normalizedRaw}`;
+                    }
+                } else {
+                    url = rawUrl;
+                }
+            }
 
             if (!name) {
                 try {
-                    const urlObj = new URL(url);
-                    const pathname = urlObj.pathname;
-                    const filenameWithExt = pathname.substring(pathname.lastIndexOf('/') + 1);
+                    let pathname = '';
+                    if (/^https?:\/\//i.test(url)) {
+                        pathname = new URL(url).pathname;
+                    } else {
+                        pathname = url;
+                    }
+
+                    const normalizedPath = pathname.replace(/\\/g, '/');
+                    const filenameWithExt = normalizedPath.substring(normalizedPath.lastIndexOf('/') + 1);
                     const decodedName = decodeURIComponent(filenameWithExt);
                     name = decodedName.replace(/\.[^/.]+$/, "").toUpperCase();
                     if (!name || name === "") name = `IMAGE ${index + 1}`;
@@ -279,7 +302,7 @@
             document.getElementById('album-title').innerText = project.title;
             document.getElementById('album-desc').innerText = project.desc;
             
-            currentProjectImages = project.images.map((img, i) => processImage(img, i));
+            currentProjectImages = project.images.map((img, i) => processImage(img, i, project));
             
             // Build Tags
             const tags = ['ALL', ...new Set(currentProjectImages.map(img => img.tag))];
